@@ -7,14 +7,13 @@ public class Landmark {
     private String landmark_name;
     private String landmark_description;
 
-
-
-//    public Landmark (int landmark_id, int address_id, String landmark_name, String description) {
+    //    public Landmark (int landmark_id, int address_id, String landmark_name, String description) {
 //        this.address_id = address_id;
 //        this.landmark_id = landmark_id;
 //        this.landmark_name = landmark_name;
 //        this.description = description;
 //    }
+    public Landmark(){};
 
     public int getLandmark_id() {
         return landmark_id;
