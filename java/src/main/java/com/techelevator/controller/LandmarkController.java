@@ -23,4 +23,6 @@ public class LandmarkController {
     public List<Landmark> retrieveAllLandmark(){
         return landmarkDAO.retrieveAllLandmark();
     }
+
+
 }
