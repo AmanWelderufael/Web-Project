@@ -23,4 +23,8 @@ public class LandmarkController {
     public List<Landmark> retrieveAllLandmark(){
         return landmarkDAO.retrieveAllLandmark();
     }
+    @RequestMapping(value = "/searchLandMark/{landmark_name}", method = RequestMethod.GET)
+    public List<Landmark> searchForLandmark(String landmark_name){
+    return landmarkDAO.searchForLandmark(landmark_name);
+}
 }

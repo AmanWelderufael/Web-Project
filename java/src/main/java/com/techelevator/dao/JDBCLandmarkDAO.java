@@ -30,13 +30,21 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         return landmarkList;
     }
 
-//    @Override
-//    public List<Landmark> retrieveAllLandmark() {
-//        return null;
-//    }
 
-    public List<Landmark> searchForLandmark() {
+
+    public List<Landmark> searchForLandmark(String landmark_name) {
         //implement searchForLandmark when database is done
+        List<Landmark> landmarkList = new ArrayList<>();
+        String sql = "SELECT *" +
+                "FROM landmark" +
+                "WHERE landmark_name = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmark_name);
+        if(results.next()) {
+            Landmark landmark = mapRowToLandmark(results);
+            landmarkList.add(landmark);
+
+            return landmarkList;
+        }
         return null;
     }
 
