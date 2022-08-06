@@ -20,7 +20,7 @@ public class LandmarkController {
     private JdbcUserDao userDao;
 
     @RequestMapping(value = "/retrieveLandMark", method = RequestMethod.GET)
-    public List<Landmark> retrieveAllLandmark(Principal principal){
-        return landmarkDAO.retrieveAllLandmark(userDao.findIdByUsername(principal.getName()));
+    public List<Landmark> retrieveAllLandmark(){
+        return landmarkDAO.retrieveAllLandmark();
     }
 }

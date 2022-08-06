@@ -5,7 +5,7 @@ public class Landmark {
     private int landmark_id;
     private int address_id;
     private String landmark_name;
-    private String description;
+    private String landmark_description;
 
 
 
@@ -40,11 +40,11 @@ public class Landmark {
         this.landmark_name = landmark_name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLandmark_description() {
+        return landmark_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLandmark_description(String landmark_description) {
+        this.landmark_description = landmark_description;
     }
 }

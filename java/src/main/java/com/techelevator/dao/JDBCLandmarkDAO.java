@@ -16,11 +16,12 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
     }
 
 
-    public List<Landmark> retrieveAllLandmark(int idByUsername){
-        //implement retrieveAllLandmark when database is done
+    public List<Landmark> retrieveAllLandmark(){
+
         List<Landmark> landmarkList = new ArrayList<>();
-        String sql = "";   //what are we calling from the database
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, idByUsername);
+        String sql = "SELECT landmark_id,address_id,landmark_name, landmark_description" +
+                "FROM landmark";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         if(results.next()){
             Landmark landmark = mapRowToLandmark(results);
             landmarkList.add(landmark);
@@ -29,10 +30,10 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         return landmarkList;
     }
 
-    @Override
-    public List<Landmark> retrieveAllLandmark() {
-        return null;
-    }
+//    @Override
+//    public List<Landmark> retrieveAllLandmark() {
+//        return null;
+//    }
 
     public List<Landmark> searchForLandmark() {
         //implement searchForLandmark when database is done
@@ -45,7 +46,7 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         landmark.setLandmark_name(results.getString("landmark_name"));
         landmark.setLandmark_id(results.getInt("landmark_id"));
         landmark.setAddress_id(results.getInt("address_id"));
-        landmark.setDescription(results.getString("description"));
+        landmark.setLandmark_description(results.getString("landmark_description"));
         return landmark;
     }
 }
