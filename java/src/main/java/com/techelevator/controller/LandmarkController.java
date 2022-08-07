@@ -18,11 +18,11 @@ public class LandmarkController {
     @Autowired
     private JdbcUserDao userDao;
 
-    @RequestMapping(path = "/retrieveLandmark", method = RequestMethod.GET)
+    @RequestMapping(value = "/retrieveLandMark", method = RequestMethod.GET)
     public List<Landmark> retrieveAllLandmark(){
-        List<Landmark> landmarkList = landmarkDAO.retrieveAllLandmark();
-        return landmarkList;
+        return landmarkDAO.retrieveAllLandmark();
     }
+
     @RequestMapping(path = "/searchLandMark", method = RequestMethod.GET)
     public List<Landmark> searchForLandmark(@RequestParam String landmark_name){
     return landmarkDAO.searchForLandmark(landmark_name);

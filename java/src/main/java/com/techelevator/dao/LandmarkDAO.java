@@ -11,4 +11,5 @@ public interface LandmarkDAO {
 
     List<Landmark> searchForLandmark(String landmark_name);
 
+
 }

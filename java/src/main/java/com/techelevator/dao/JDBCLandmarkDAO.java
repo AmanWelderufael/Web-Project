@@ -62,4 +62,6 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         landmark.setLandmark_description(results.getString("landmark_description"));
         return landmark;
     }
+
+
 }
