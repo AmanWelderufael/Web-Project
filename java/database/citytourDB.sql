@@ -75,6 +75,36 @@ INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (1
 commit;
 
 
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.address TO final_capstone_appuser;
+
+GRANT ALL ON TABLE public.address TO final_capstone_owner;
+
+GRANT ALL ON TABLE public.address TO postgres;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.landmark TO final_capstone_appuser;
+
+GRANT ALL ON TABLE public.landmark TO final_capstone_owner;
+
+GRANT ALL ON TABLE public.landmark TO postgres;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.itinerary TO final_capstone_appuser;
+
+GRANT ALL ON TABLE public.itinerary TO final_capstone_owner;
+
+GRANT ALL ON TABLE public.itinerary TO postgres;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.address TO final_capstone_appuser;
+
+GRANT ALL ON TABLE public.address TO final_capstone_owner;
+
+GRANT ALL ON TABLE public.address TO postgres;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.landmark_itinerary TO final_capstone_appuser;
+
+GRANT ALL ON TABLE public.landmark_itinerary TO final_capstone_owner;
+
+GRANT ALL ON TABLE public.landmark_itinerary TO postgres;
+
 
 
 
