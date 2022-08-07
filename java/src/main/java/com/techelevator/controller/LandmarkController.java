@@ -5,9 +5,8 @@ import com.techelevator.dao.JDBCLandmarkDAO;
 import com.techelevator.dao.JdbcUserDao;
 import com.techelevator.model.Landmark;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -23,4 +22,10 @@ public class LandmarkController {
     public List<Landmark> retrieveAllLandmark(){
         return landmarkDAO.retrieveAllLandmark();
     }
+
+    @RequestMapping(path = "/searchLandMark", method = RequestMethod.GET)
+    public List<Landmark> searchForLandmark(@RequestParam String landmark_name){
+    return landmarkDAO.searchForLandmark(landmark_name);
+}
+
 }
