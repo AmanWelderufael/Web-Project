@@ -9,6 +9,6 @@ public interface LandmarkDAO {
 
     List<Landmark> retrieveAllLandmark();
 
-//    List<Landmark> searchForLandmark(String landmark_name);
+    List<Landmark> searchForLandmark(String landmark_name);
 
 }

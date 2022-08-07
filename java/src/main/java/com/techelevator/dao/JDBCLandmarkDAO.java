@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Landmark;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -35,21 +36,21 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
 
 
 
-//    public List<Landmark> searchForLandmark(String landmark_name) {
-//        //implement searchForLandmark when database is done
-//        List<Landmark> landmarkList = new ArrayList<>();
-//        String sql = "SELECT * " +
-//                "FROM landmark " +
-//                "WHERE landmark_name = ?";
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmark_name);
-//        if(results.next()) {
-//            Landmark landmark = mapRowToLandmark(results);
-//            landmarkList.add(landmark);
-//
-//            return landmarkList;
-//        }
-//        return null;
-//    }
+    public List<Landmark> searchForLandmark(String landmark_name) {
+        //implement searchForLandmark when database is done
+        List<Landmark> landmarkList = new ArrayList<>();
+        String sql = "SELECT * " +
+                "FROM landmark " +
+                "WHERE landmark_name = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmark_name);
+        if(results.next()) {
+            Landmark landmark = mapRowToLandmark(results);
+            landmarkList.add(landmark);
+
+            return landmarkList;
+        }
+        return null;
+    }
 
     private Landmark mapRowToLandmark(SqlRowSet results) {
         Landmark landmark = new Landmark();
