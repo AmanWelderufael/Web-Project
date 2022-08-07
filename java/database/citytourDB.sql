@@ -55,7 +55,9 @@ INSERT INTO address(street_number, street_name, city_name, state_name, zip_code)
 INSERT INTO address(street_number, street_name, city_name, state_name, zip_code) VALUES (89,'E 42nd st','New York', 'NY', 10017);
 INSERT INTO address(street_number, street_name, city_name, state_name, zip_code) VALUES (20, 'Hudson Yards','New York', 'NY', 10001);
 INSERT INTO address(street_number, street_name, city_name, state_name, zip_code) VALUES (185, 'Greenwich St', 'New York', 'NY', 10006);
-
+INSERT INTO address(street_number, street_name, city_name, state_name, zip_code) VALUES (405, 'Lexington Ave', 'New York', 'NY', 10174);
+INSERT INTO address(street_number, street_name, city_name, state_name, zip_code) VALUES (175, '5th Ave', 'New York', 'NY', 10010);
+INSERT INTO address(street_number, street_name, city_name, state_name, zip_code) VALUES (1071, '5th Ave', 'New York', 'NY', 10128);
 
 
 INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (1,'Rockefeller Center', 'Famous complex that is home to TV studios, plus a seasonal ice rink & giant Christmas tree.');
@@ -67,11 +69,13 @@ INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (6
 INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (7, 'Grand Central Terminal', 'Grand Central is the southern terminus of the Metro-North Railroads Harlem, Hudson and New Haven Lines, serving the northern parts of the New York metropolitan area.');
 INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (8, 'The Vessel' , 'Open-air, honeycomb-shaped attraction offering 16 stories & 80 landings for visitors to climb.');
 INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (9, 'The Oculus', 'terminal station on the PATH system, within the World Trade Center complex in the Financial District of Manhattan, New York City. It is served by the Newark–World Trade Center line at all times.' );
-
+INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (10,'The Chrysler Building', 'Shimmering art deco skyscraper from 1930 whose spire once made it the worlds tallest building.');
+INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (11,'The Flatiron Building', 'Architect Daniel Burnhams iconic 1902 triangular tower nicknamed for its clothes iron look.');
+INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (12,'Solomon R. Guggenheim Museum', 'Frank Lloyd Wright–designed modern-art museum with an architecturally significant spiral rotunda.');
 commit;
 
 
-select * from landmark
+
 
 
 
