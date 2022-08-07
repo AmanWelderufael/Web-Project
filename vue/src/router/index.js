@@ -55,8 +55,8 @@ const router = new Router({
       }
     },
     {
-      path: "/alllandmarks",
-      name: "alllandmarks",
+      path: "/landmark",
+      name: "landmark",
       component: AllLandmarks
     }
   ]

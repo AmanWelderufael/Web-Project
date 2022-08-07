@@ -1,16 +1,16 @@
 <template>
 <div>
-  <the-landmark />
+  <landmark-list />
 </div>
 </template>
 
 <script>
-import TheLandmark from '../components/TheLandmark.vue'
+import LandmarkList from '../components/LandmarkList.vue'
 
 
 export default {
   name: "landmark",
-  components: { TheLandmark }
+  components: { LandmarkList }
 
 }
 </script>

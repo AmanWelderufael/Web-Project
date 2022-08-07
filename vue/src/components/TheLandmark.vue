@@ -4,17 +4,9 @@
 
 <div class="row">
   <div class="column">
-    <div class="card">..</div>
+    <div class="card">{{landmark.landmark_name}}</div>
   </div>
-  <div class="column">
-    <div class="card">..</div>
-  </div>
-  <div class="column">
-    <div class="card">..</div>
-  </div>
-  <div class="column">
-    <div class="card">..</div>
-  </div>
+  
 </div>
 
 
@@ -32,6 +24,9 @@
 <script>
 
 export default {
+  props: {
+    landmark: Object
+  }
 
 
 }

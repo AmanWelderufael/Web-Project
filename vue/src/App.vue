@@ -5,7 +5,6 @@
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
     <the-header />
-    <the-landmark />
     <router-view />
     <the-footer />
   </div>
@@ -14,15 +13,16 @@
 <script>
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
-import TheLandmark from './components/TheLandmark.vue'
+
+
 
 
 export default {
   name: 'App',
   components: {
     TheHeader,
-    TheLandmark,
-    TheFooter
+    TheFooter,
+    
   }
 }
 
