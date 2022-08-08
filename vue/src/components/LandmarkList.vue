@@ -47,6 +47,8 @@ export default {
     
   }
   .card{
+    margin-top: 1%;
+    margin-bottom: 2%;
     flex: 0 1 32%;
   }
 
