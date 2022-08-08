@@ -1,6 +1,7 @@
 <template>
   <div>
-      <the-landmark v-bind:landmark ="landmark" v-for="landmark in landmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_description}}</the-landmark>
+      
+      <the-landmark v-bind:landmark ="landmark" v-for="landmark in filteredLandmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_description}}</the-landmark>
 
 
   </div>
@@ -11,6 +12,10 @@
 import LandmarkService from "../services/LandmarkService"
 import TheLandmark from './TheLandmark.vue';
 export default {
+
+  props:{
+    filteredLandmarks: []
+  },
   
   components: { TheLandmark },
     data(){
