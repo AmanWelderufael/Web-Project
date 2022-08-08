@@ -1,7 +1,7 @@
 <template>
   <div>
       
-      <the-landmark v-bind:landmark ="landmark" v-for="landmark in filteredLandmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_description}}</the-landmark>
+      <the-landmark class = "card" v-bind:landmark ="landmark" v-for="landmark in filteredLandmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_description}}</the-landmark>
       
 
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 
-import LandmarkService from "../services/LandmarkService";
+import LandmarkService from "../services/LandmarkService"
 import TheLandmark from './TheLandmark.vue';
 export default {
 
@@ -36,22 +36,17 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
-<style>
-</style>
-=======
 <style scoped>
   div{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+   flex-wrap: wrap;
+   justify-content: space-between;
     
   }
-  the-landmark{
-    flex-grow: 1;
+  .card{
+    flex: 0 1 32%;
   }
 
 
 
 </style>
->>>>>>> 0a94a2832f729e4ebd79190c4d486b7f42a3a4a0
