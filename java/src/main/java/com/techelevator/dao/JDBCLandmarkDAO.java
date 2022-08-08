@@ -44,7 +44,8 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         List<Landmark> landmarkList = new ArrayList<>();
         String sql = "select address.*, landmark.*\n" +
                 "from landmark\n" +
-                "WHERE landmark_name = ?";
+                "join address on landmark.address_id = address.address_id\n" +
+                "where address.zip_code = ?  OR landmark.landmark_name = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmark_name);
         if(results.next()) {
             Landmark landmark = mapRowToLandmark(results);

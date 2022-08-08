@@ -1,9 +1,11 @@
 <template>
-  <div>
-      <the-landmark v-bind:landmark ="landmark" v-for="landmark in landmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_description}}</the-landmark>
-
-
+ <div >
+ 
+<the-landmark  v-bind:landmark ="landmark" v-for="landmark in landmarks" v-bind:key="landmark.landmark_id" />
   </div>
+
+  
+ 
 </template>
 
 <script>
@@ -31,5 +33,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+}
+
 </style>
