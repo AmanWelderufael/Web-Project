@@ -4,7 +4,7 @@
         <label for="zip">Enter a Zip Code To Find exciting destinations!</label>
         <input type="text" name="zip" v-model="zipFilter"/>
       </div>
-    <landmark-list v-bind:filteredList="filteredLandmarks"></landmark-list>
+    <landmark-list v-bind:filteredLandmarks="filteredLandmarks"></landmark-list>
 
 
 
@@ -31,7 +31,7 @@ export default {
   computed: {
     filteredLandmarks() {
       return this.landmarks.filter((landmark) => {
-        return this.zipFilter == "" ? true: this.zipFilter == landmark.address.zip;
+        return this.zipFilter == "" ? true: this.zipFilter == landmark.zip_code;
       });
     },
   },
