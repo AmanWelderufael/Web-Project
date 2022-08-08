@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import AllLandmarks from '../views/AllLandmarks'
+import LandmarkSearch from '../views/LandmarkSearch'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ const router = new Router({
       path: "/landmark",
       name: "landmark",
       component: AllLandmarks
+    },
+    {
+      path:"/search",
+      name:"Landmark-search",
+      component: LandmarkSearch
     }
   ]
 })

@@ -1,18 +1,21 @@
 <template>
- <div >
- 
-<the-landmark  v-bind:landmark ="landmark" v-for="landmark in landmarks" v-bind:key="landmark.landmark_id" />
-  </div>
+  <div>
+      
+      <the-landmark v-bind:landmark ="landmark" v-for="landmark in filteredLandmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_description}}</the-landmark>
 
-  
- 
+
+  </div>
 </template>
 
 <script>
 
-import LandmarkService from "../services/LandmarkService"
+import LandmarkService from "../services/LandmarkService";
 import TheLandmark from './TheLandmark.vue';
 export default {
+
+  props:{
+    filteredLandmarks: []
+  },
   
   components: { TheLandmark },
     data(){
@@ -33,11 +36,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 200px;
-}
-
+<style>
 </style>
