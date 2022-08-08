@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import AllLandmarks from '../views/AllLandmarks'
 import LandmarkSearch from '../views/LandmarkSearch'
+import LandmarkDetail from '../views/LandmarkDetail'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ const router = new Router({
       path:"/search",
       name:"Landmark-search",
       component: LandmarkSearch
+    },
+    {
+      path: '/landmark/:id',
+      name: 'Landmark-details',
+      component: LandmarkDetail
     }
   ]
 })
