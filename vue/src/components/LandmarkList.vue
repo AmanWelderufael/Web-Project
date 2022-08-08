@@ -37,6 +37,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  background-color: #112740;
+}
   div{
     display: flex;
    flex-wrap: wrap;

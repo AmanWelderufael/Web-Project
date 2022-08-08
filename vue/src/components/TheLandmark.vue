@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+
   <div class = "card">
     <img :src="getImageURL(landmark.landmark_id)">
     <div class = "info">
@@ -9,7 +9,7 @@
       <a href="#" class="btn">Details</a>
 
 
-    </div>
+   
   </div>
 
 </div>
@@ -67,9 +67,9 @@ html, body{
 
 }
 .wrapper{
-  display: flex;
+  /* display: flex;
   width: 70%;
-  justify-content: space-around;
+  justify-content: space-around; */
 
 }
 .card {
@@ -99,13 +99,57 @@ html, body{
   transition: 0.5s all;
   opacity: 0;
 }
+.card:hover:before{
+  opacity: 1;
+}
 
 
-
-img {
+.card img {
     float: left;
-    width:  100px;
-    height: 100px;
+    width:  100%;
+    height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+
+}
+
+.card .info{
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s all;
+}
+.card:hover .info{
+  opacity: 1;
+  transform: translateY(0px);
+}
+.card .info h1{
+  margin: 0;
+}
+.card .info p{
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+
+}
+.card .info .btn{
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+
+}
+.card .info .btn:hover{
+  box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
 }
 </style>
