@@ -3,13 +3,15 @@
     <div class="searchBox">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
                 
-            <input class="searchInput" type="text" name="" placeholder="Search" v-model="zipFilter">
+            <input class="searchInput" type="text" name="" placeholder="Search" v-model="Filter">
             <button class="searchButton" href="#">
                 
             </button>
         </div>
     <landmark-list v-bind:filteredLandmarks="filteredLandmarks"></landmark-list>
   </div>
+
+
 </template>
 
 

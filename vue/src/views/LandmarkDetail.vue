@@ -4,7 +4,7 @@
     <div class="card gridItem" style="width: 18rem">
       <div class="card-body">
         <h5 class="card-title">{{landmark.landmark_name}}</h5>
-        <p class="card-text">
+        <p id="description" class="card-text">
           {{landmark.landmark_description}}
         </p>
         <p class="card-text">
@@ -23,12 +23,14 @@
       :src="getImageURL(landmark.landmark_id)"
     />
 
-    <img class="gridItem" id="map" src="../assets/map.jpg" />
+    <the-map v-bind:landmark="landmark" class="gridItem" id="map"></the-map>
   </div>
 </template>
 
 <script>
 import LandmarkService from "../services/LandmarkService";
+import TheMap from "../components/map.vue"
+
 export default {
   name: "landmark-details",
 
@@ -36,6 +38,10 @@ export default {
     return {
       landmark: "",
     };
+  },
+  components:{
+    TheMap
+
   },
   created() {
     LandmarkService.getByID(this.$route.params.id).then((response) => {
@@ -115,5 +121,12 @@ export default {
   background-color: #143050;
   height: 85vh;
   place-items: center;
+}
+#description {
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 20px;
+  
+  
 }
 </style>
