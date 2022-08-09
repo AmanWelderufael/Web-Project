@@ -2,34 +2,34 @@
   <div id="app">
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{name:'Landmark-search' }">Search</router-link>
+      <router-link
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token != ''"
+        >Logout</router-link
+      >&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'Landmark-search' }">Search</router-link>
     </div>
     <the-header />
     <router-view />
-    <themap />
+
     <the-footer />
   </div>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue'
-import TheFooter from './components/TheFooter.vue'
-import Themap from './components/Themap.vue'
-
-
+import TheHeader from "./components/TheHeader.vue";
+import TheFooter from "./components/TheFooter.vue";
 
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TheHeader,
-    TheFooter,
-    Themap
-    
-  }
-}
-
+    TheFooter
+      
+  },
+};
+  
 </script>,
     TheLandmark
 
@@ -44,10 +44,9 @@ export default {
 }
 
 router-vue {
-  display:flex;
+  display: flex;
   justify-content: center;
   flex-direction: column;
 }
-
 </style>
 
