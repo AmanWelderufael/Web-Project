@@ -7,6 +7,8 @@
       <p> {{landmark.landmark_description}} </p>
       <a href="#" class="btn">Add Itinerary</a>
       <a href="#" class="btn">Details</a>
+      <router-link v-bind:to="{ name: 'Landmark-details', params:{id:landmark.landmark_id}}">Details</router-link>
+
 
 
    

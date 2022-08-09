@@ -1,15 +1,27 @@
 <template>
   <div>
-     <p>{{landmark.details}}</p>
-     <p>{{landmark.address.street_number}} {{landmark.address.street_name}}</p>
-     <p>{{landmark.address.zip_code}}</p>
+    <p>{{landmark.landmark_name}}</p>
   </div>
 </template>
 
 <script>
+import LandmarkService from '../services/LandmarkService'
 export default {
     name: "landmark-details",
-  props: ["landmark"]
+   
+    data(){
+      return{
+        landmark: ''
+      }
+      
+    },
+    created(){
+      LandmarkService.getByID(this.$route.params.id).then(response =>{
+        this.landmark = response.data;
+      })
+    }
+  
+
 
 }
 </script>
