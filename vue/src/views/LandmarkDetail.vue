@@ -1,72 +1,119 @@
 <template>
-  <div id ="gridContainer">
-    
-    <p id = "name">{{landmark.landmark_name}}</p>
-    <p id = "description">{{landmark.landmark_description}}</p>
-    <img id="landmark-picture" :src="getImageURL(landmark.landmark_id)" />
+  <div id="gridContainer">
 
+    <div class="card gridItem" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">{{landmark.landmark_name}}</h5>
+        <p class="card-text">
+          {{landmark.landmark_description}}
+        </p>
+        <p class="card-text">
+          review-1
+        </p>
+        <p class="card-text">
+          review-2
+        </p>
+        <a href="#" class="card-link">Add to Itinerary</a>
+      </div>
+    </div>
 
-    <img id="map" src='../assets/map.jpg'/>
+    <img
+      class="gridItem"
+      id="landmark-picture"
+      :src="getImageURL(landmark.landmark_id)"
+    />
 
-
-
-
+    <img class="gridItem" id="map" src="../assets/map.jpg" />
   </div>
 </template>
 
 <script>
-import LandmarkService from '../services/LandmarkService'
+import LandmarkService from "../services/LandmarkService";
 export default {
-    name: "landmark-details",
-   
-    data(){
-      return{
-        landmark: ''
-      }
-      
-    },
-    created(){
-      LandmarkService.getByID(this.$route.params.id).then(response =>{
-        this.landmark = response.data;
-      })
-    },
-    methods: {
+  name: "landmark-details",
+
+  data() {
+    return {
+      landmark: "",
+    };
+  },
+  created() {
+    LandmarkService.getByID(this.$route.params.id).then((response) => {
+      this.landmark = response.data;
+    });
+  },
+  methods: {
     getImageURL(id) {
       console.log("../assets/" + id + ".jpg");
       return require("../assets/" + id + ".jpg");
     },
   },
-    
-  
-
-
-}
+};
 </script>
 
-<style>
-#name{
+<style scoped>
+.card{
+  grid-area: description;
+  height: 90%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 176, 155, 0.5),
+    rgba(150, 201, 61, 1)
+  );
+
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90%;
+}
+.card-title{
+  font-weight: bold;
+  font-size: 200%;
+}
+#name {
+  font-weight: bold;
+  font-size: 400%;
   grid-area: name;
 }
-#description{
+/* #description {
   grid-area: description;
-}
-#landmark-picture{
+  font-size: 150%;
+} */
+#landmark-picture {
   grid-area: picture;
-  width: 100%;
-  height: 100%;
-
+  width: 90%;
+  height: 90%;
 }
-#map{
+#map {
   grid-area: map;
-  width: 100%;
+  width: 90%;
+  height: 90%;
+}
+.gridItem {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 
-#gridContainer{
+.textBox {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 176, 155, 0.5),
+    rgba(150, 201, 61, 1)
+  );
+}
+
+#gridContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "picture name map"
-                        "picture description map"
-                        "picture description map";
+  grid-template-columns: 3fr 1fr 2fr;
+  grid-template-areas:
+    "picture description map"
+    "picture description map"
+    "picture description map";
+  gap: 20px;
+  column-gap: 50px;
+  background-color: #143050;
+  height: 85vh;
+  place-items: center;
 }
-
 </style>
