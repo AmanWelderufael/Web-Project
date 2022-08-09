@@ -1,8 +1,8 @@
 <template>
   <div>
        <GmapMap
-      :center="{ lat: 40.748817, lng: -73.985428 }"
-      :zoom="7"
+      :center="coordinates"
+      :zoom="16"
       map-type-id="terrain"
       style="width: 500px; height: 600px"
     >
@@ -15,12 +15,41 @@
         @click="center = m.position"
       />
     </GmapMap>
+   
   </div>
 </template>
 
 <script>
 export default {
+  
+  props: {
+    landmark: Object,
+  },
+  name: 'the-map',
+  data() {
+    return {
+      coordinates:{
+        lat: '',
+        lng: ''
+      
+      }
+    };
+  },
+  created(){
+    this.coordinates.lat = this.landmark.latitude;
+    this.coordinates.lng = this.landmark.longitude;
+  },
+  methods:{
+    getCoordinates(){
+      let object = {
+        lat: this.landmark.latitude,
+        lng: this.landmark.longitude
+      }
+      return object;
 
+      
+    }
+  }
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="input-wrapper">
-    <input type="text" placeholder="Search Landmarks" v-model="zipFilter" />
+    <input type="text" placeholder="Search Landmarks" v-model="Filter" />
 
     <landmark-list v-bind:filteredLandmarks="filteredLandmarks"></landmark-list>
   </div>

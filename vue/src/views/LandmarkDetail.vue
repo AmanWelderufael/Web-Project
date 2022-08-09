@@ -23,12 +23,14 @@
       :src="getImageURL(landmark.landmark_id)"
     />
 
-    <img class="gridItem" id="map" src="../assets/map.jpg" />
+    <the-map v-bind:landmark="landmark" class="gridItem" id="map"></the-map>
   </div>
 </template>
 
 <script>
 import LandmarkService from "../services/LandmarkService";
+import TheMap from "../components/map.vue"
+
 export default {
   name: "landmark-details",
 
@@ -36,6 +38,10 @@ export default {
     return {
       landmark: "",
     };
+  },
+  components:{
+    TheMap
+
   },
   created() {
     LandmarkService.getByID(this.$route.params.id).then((response) => {
