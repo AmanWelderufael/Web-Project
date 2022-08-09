@@ -56,6 +56,20 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         return null;
     }
 
+    public Landmark getByID(int id){
+        Landmark landmark = new Landmark();
+        String sql = "select address.*, landmark.*\n" +
+                "from landmark\n" +
+                "join address on landmark.address_id = address.address_id\n" +
+                "where landmark.landmark_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
+        if(results.next()) {
+            landmark = mapRowToLandmark(results);
+        }
+        return landmark;
+
+    }
+
     private Landmark mapRowToLandmark(SqlRowSet results) {
         Landmark landmark = new Landmark();
 
