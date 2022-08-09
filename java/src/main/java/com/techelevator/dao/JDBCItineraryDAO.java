@@ -1,9 +1,10 @@
 package com.techelevator.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-
+@Component
 public class JDBCItineraryDAO implements ItineraryDAO{
     private final JdbcTemplate jdbcTemplate;
 
