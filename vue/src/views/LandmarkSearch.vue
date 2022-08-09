@@ -2,7 +2,7 @@
   <div id="body">
     
     <div class="search-box">
-      <input class = "search-txt" type="text" name="zip" placeholder="Type to search" v-model="zipFilter">
+      <input class = "search-txt" type="text" name="zip" placeholder="Type to search" v-model="Filter">
       <a class="search-btn" href="#" for="zip"></a>
       <i class="fa-solid fa-magnifying-glass"></i>
 
@@ -25,17 +25,19 @@ export default {
   name: "Landmark-search",
   data() {
     return {
-      zipFilter: "",
-      nameFilter: "",
+      Filter: "",
       landmarks: [],
     };
   },
   computed: {
     filteredLandmarks() {
+   
+
       return this.landmarks.filter((landmark) => {
-        return this.zipFilter == "" ? true: this.zipFilter == landmark.zip_code;
+        return this.Filter == "" ? true: this.Filter == landmark.zip_code  || landmark.landmark_name.toLowerCase().includes(this.Filter.toLowerCase());
       });
     },
+
   },
   created() {
 

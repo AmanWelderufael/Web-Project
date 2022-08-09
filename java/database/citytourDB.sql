@@ -74,7 +74,7 @@ INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (9
 INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (10,'The Chrysler Building', 'Shimmering art deco skyscraper from 1930 whose spire once made it the worlds tallest building.');
 INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (11,'The Flatiron Building', 'Architect Daniel Burnhams iconic 1902 triangular tower nicknamed for its clothes iron look.');
 INSERT INTO landmark (address_id, landmark_name, landmark_description) VALUES (12,'Solomon R. Guggenheim Museum', 'Frank Lloyd Wright–designed modern-art museum with an architecturally significant spiral rotunda.');
-commit;
+
 
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE public.address TO final_capstone_appuser;
@@ -108,6 +108,6 @@ GRANT ALL ON TABLE public.landmark_itinerary TO final_capstone_owner;
 GRANT ALL ON TABLE public.landmark_itinerary TO postgres;
 
 
-
+commit;
 
 
