@@ -1,12 +1,7 @@
 <template>
   <div class="input-wrapper">
-
-  
-      
-    
     <input type="text" placeholder="Search Landmarks" v-model="zipFilter" />
 
-    
     <landmark-list v-bind:filteredLandmarks="filteredLandmarks"></landmark-list>
   </div>
 </template>
@@ -33,17 +28,19 @@ export default {
   name: "Landmark-search",
   data() {
     return {
-      zipFilter: "",
-      nameFilter: "",
+      Filter: "",
       landmarks: [],
     };
   },
   computed: {
     filteredLandmarks() {
       return this.landmarks.filter((landmark) => {
-        return this.zipFilter == ""
+        return this.Filter == ""
           ? true
-          : this.zipFilter == landmark.zip_code;
+          : this.Filter == landmark.zip_code ||
+              landmark.landmark_name
+                .toLowerCase()
+                .includes(this.Filter.toLowerCase());
       });
     },
   },
@@ -59,7 +56,7 @@ export default {
 * {
   font-size: 1.5rem;
 }
-.input-wrapper{
+.input-wrapper {
   display: block;
   align-items: center;
   justify-content: space-between;
@@ -68,8 +65,6 @@ export default {
   border-radius: 00.5rem;
   color: white;
   box-shadow: 0.25rem 0.25rem 0rem #f0b2a8;
-  
-  
 }
 input {
   margin: 0 0.5rem 0 0.5rem;
@@ -78,9 +73,8 @@ input {
   outline: none;
   background: #e26d5c;
   color: white;
-
 }
-::placeholder{
+::placeholder {
   color: #f0b2a8;
 }
 </style>

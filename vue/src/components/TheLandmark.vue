@@ -5,8 +5,17 @@
       <h1>{{ landmark.landmark_name }}</h1>
       <p>{{ landmark.landmark_description }}</p>
       <a href="#" class="btn">Add Itinerary</a>
-      <a href="#" class="btn">Details</a>
+      <router-link
+        class="btn"
+        v-bind:to="{
+          name: 'Landmark-details',
+          params: { id: landmark.landmark_id },
+        }"
+        >Details</router-link
+      >
     </div>
+
+    <a href="#" class="btn">Details</a>
   </div>
 
   <!-- <img :src="getImageURL(landmark.landmark_id)">
