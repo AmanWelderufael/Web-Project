@@ -23,7 +23,9 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
     public List<Landmark> retrieveAllLandmark(){
 
         List<Landmark> landmarkList = new ArrayList<>();
-        String sql = "select * from landmark";
+        String sql = "select address.*, landmark.*\n" +
+                "from landmark\n" +
+                "join address on landmark.address_id = address.address_id";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -38,10 +40,12 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
 
     public List<Landmark> searchForLandmark(String landmark_name) {
         //implement searchForLandmark when database is done
+        // fix sql when pulled
         List<Landmark> landmarkList = new ArrayList<>();
-        String sql = "SELECT * " +
-                "FROM landmark " +
-                "WHERE landmark_name = ?";
+        String sql = "select address.*, landmark.*\n" +
+                "from landmark\n" +
+                "join address on landmark.address_id = address.address_id\n" +
+                "where address.zip_code = ?  OR landmark.landmark_name = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmark_name);
         if(results.next()) {
             Landmark landmark = mapRowToLandmark(results);
@@ -52,6 +56,20 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         return null;
     }
 
+    public Landmark getByID(int id){
+        Landmark landmark = new Landmark();
+        String sql = "select address.*, landmark.*\n" +
+                "from landmark\n" +
+                "join address on landmark.address_id = address.address_id\n" +
+                "where landmark.landmark_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
+        if(results.next()) {
+            landmark = mapRowToLandmark(results);
+        }
+        return landmark;
+
+    }
+
     private Landmark mapRowToLandmark(SqlRowSet results) {
         Landmark landmark = new Landmark();
 
@@ -60,6 +78,13 @@ public class JDBCLandmarkDAO implements LandmarkDAO {
         landmark.setLandmark_id(results.getInt("landmark_id"));
         landmark.setAddress_id(results.getInt("address_id"));
         landmark.setLandmark_description(results.getString("landmark_description"));
+        landmark.setStreet_number(results.getInt("street_number"));
+        landmark.setStreet_name(results.getString("street_name"));
+        landmark.setCity_name(results.getString("city_name"));
+        landmark.setState_name(results.getString("state_name"));
+        landmark.setZip_code(results.getInt("zip_code"));
+        landmark.setLatitude(results.getFloat("latitude"));
+        landmark.setLongitude(results.getFloat("longitude"));
         return landmark;
     }
 

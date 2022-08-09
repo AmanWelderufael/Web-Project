@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class LandmarkController {
     @Autowired
@@ -26,6 +26,12 @@ public class LandmarkController {
     @RequestMapping(path = "/searchLandMark", method = RequestMethod.GET)
     public List<Landmark> searchForLandmark(@RequestParam String landmark_name){
     return landmarkDAO.searchForLandmark(landmark_name);
-}
+    }
+    @RequestMapping(path = "/landmark/{id}", method = RequestMethod.GET)
+        public Landmark get(@PathVariable int id){
+            return landmarkDAO.getByID(id);
+        }
+
+
 
 }
