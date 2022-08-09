@@ -4,7 +4,8 @@
     <nav>
       <ul class="nav_links">
         <li><a href="#">About</a></li>
-        <li><a href="#">Search</a></li>
+        <li><a href="#"><router-link v-bind:to="{ name: 'Landmark-search' }">Search</router-link></a></li>
+        <li><a href="#">contact</a></li>
         <li class = "login">
           <router-link
             v-bind:to="{ name: 'logout' }"
@@ -81,7 +82,7 @@ li,a,button{
 .nav_links li a:hover {
     color: #0088a9;
 }
-.login {
+/* .login {
     margin-left: 20px;
     padding: 9px 25px;
     background-color: rgba(0,136,169,1);
@@ -89,8 +90,8 @@ li,a,button{
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-}
-.login:hover {
+} */
+/* .login:hover {
     background-color: rgba(0,136,169,0.8)
-}
+} */
 </style>

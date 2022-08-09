@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <the-header />
+    <!-- <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link
         v-bind:to="{ name: 'logout' }"
@@ -8,8 +9,8 @@
         >Logout</router-link
       >&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'Landmark-search' }">Search</router-link>
-    </div>
-    <the-header />
+    </div> -->
+    
     <router-view />
 
     <the-footer />
@@ -40,7 +41,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 
 router-vue {
