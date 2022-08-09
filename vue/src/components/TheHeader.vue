@@ -1,59 +1,96 @@
 <template>
-   <div>
-       <div id = "container">
-            <img id="banner-image" src="" alt="">
-    
-            <nav>
-                 <router-link v-bind:to="{ name: 'landmark'}">Landmark</router-link>
-            
-                 <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token == ''">Login</router-link>
-                 <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-            </nav>
+  <div class = "header">
+    <img class="logo" src="" alt="logo" />
+    <nav>
+      <ul class="nav_links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Search</a></li>
+        <li class = "login">
+          <router-link
+            v-bind:to="{ name: 'logout' }"
+            v-if="$store.state.token == ''"
+            >Login</router-link
+          >
+          <router-link
+            v-bind:to="{ name: 'logout' }"
+            v-if="$store.state.token != ''"
+            >Logout</router-link
+          >
+        </li>
+      </ul>
+    </nav>
 
-            <div>
-             <p v-if="$store.state.token != ''">Welcome {{$store.state.user.username}}</p>
-            </div>
-       </div> 
+    <div>
+      <p v-if="$store.state.token != ''">
+        Welcome {{ $store.state.user.username }}
+      </p>
+    </div>
 
-   </div>
+
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'the-header',
-    data() {
-        return {
-        }
-    }
-}
+  name: "the-header",
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style scoped>
-  #container {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-  }
+img{
+    cursor: pointer;
+    widows: 20px;
+    margin-right: auto;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #112740;
+}
 
-  #banner-image {
-      margin-bottom: 40px;
-      width: 10%;
-      height: auto;
-  }
+li,a,button{
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
 
-  nav {
-      margin-bottom: 40px;
-  }
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+}
+.nav_links {
+    list-style: none;
 
-  nav a {
-      padding: 15px 25px;
-      background-color: rgb(3, 189, 3);
-      color:black
-  }
+}
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
 
-  nav a:hover {
-      background-color: green;
-      color: white;
-  }
+}
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+.nav_links li a:hover {
+    color: #0088a9;
+}
+.login {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.login:hover {
+    background-color: rgba(0,136,169,0.8)
+}
 </style>

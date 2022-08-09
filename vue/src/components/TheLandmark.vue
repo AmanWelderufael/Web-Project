@@ -1,29 +1,22 @@
 <template>
-
-  <div class = "card">
-    <img :src="getImageURL(landmark.landmark_id)">
-    <div class = "info">
-      <h1>{{landmark.landmark_name}} </h1>
-      <p> {{landmark.landmark_description}} </p>
+  <div class="card">
+    <img :src="getImageURL(landmark.landmark_id)" />
+    <div class="info">
+      <h1>{{ landmark.landmark_name }}</h1>
+      <p>{{ landmark.landmark_description }}</p>
       <a href="#" class="btn">Add Itinerary</a>
       <router-link class="btn" v-bind:to="{ name: 'Landmark-details', params:{id:landmark.landmark_id}}">Details</router-link>
 
+    </div>
 
-
-   
   </div>
 
-</div>
-  
-         <!-- <img :src="getImageURL(landmark.landmark_id)">
+  <!-- <img :src="getImageURL(landmark.landmark_id)">
       
       
           <h5 class = "card-title">{{landmark.landmark_name}}</h5>
           <p class = "card-text">{{landmark.landmark_description}}</p>
        -->
-
-
-
 </template>
 
 
@@ -32,46 +25,38 @@
 
 
 <script>
-
 export default {
-
-  
-
   props: {
-    landmark: Object
+    landmark: Object,
   },
 
   methods: {
     getImageURL(id) {
       console.log("../assets/" + id + ".jpg");
       return require("../assets/" + id + ".jpg");
-    }
-  }
-
-
-}
-
+    },
+  },
+};
 </script>
 
 <style scoped>
-*{
+* {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
-html, body{
-  width:100%;
+html,
+body {
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #222;
-
 }
-.wrapper{
+.wrapper {
   /* display: flex;
   width: 70%;
   justify-content: space-around; */
-
 }
 .card {
   width: 280px;
@@ -81,13 +66,13 @@ html, body{
   position: relative;
   display: flex;
   align-items: flex-end;
-  box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
   transition: 0.5s ease-in-out;
 }
-.card:hover{
+.card:hover {
   transform: translateY(20px);
 }
-.card:before{
+.card:before {
   content: "";
   position: absolute;
   top: 0;
@@ -95,29 +80,30 @@ html, body{
   display: block;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,176,155,0.5), rgba(150,201,61,1));
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 176, 155, 0.5),
+    rgba(150, 201, 61, 1)
+  );
   z-index: 2;
   transition: 0.5s all;
   opacity: 0;
 }
-.card:hover:before{
+.card:hover:before {
   opacity: 1;
 }
 
-
 .card img {
-    float: left;
-    width:  100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-   
-
+  float: left;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.card .info{
+.card .info {
   position: relative;
   z-index: 3;
   color: #fff;
@@ -125,21 +111,20 @@ html, body{
   transform: translateY(30px);
   transition: 0.5s all;
 }
-.card:hover .info{
+.card:hover .info {
   opacity: 1;
   transform: translateY(0px);
 }
-.card .info h1{
+.card .info h1 {
   margin: 0;
 }
-.card .info p{
+.card .info p {
   letter-spacing: 1px;
   font-size: 15px;
   margin-top: 8px;
   margin-bottom: 20px;
-
 }
-.card .info .btn{
+.card .info .btn {
   text-decoration: none;
   padding: 0.5rem 1rem;
   background: #fff;
@@ -148,9 +133,8 @@ html, body{
   font-weight: bold;
   cursor: pointer;
   transition: 0.4s ease-in-out;
-
 }
-.card .info .btn:hover{
-  box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+.card .info .btn:hover {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 </style>
