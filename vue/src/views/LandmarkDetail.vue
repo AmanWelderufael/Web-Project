@@ -4,7 +4,7 @@
     <div class="card gridItem" style="width: 18rem">
       <div class="card-body">
         <h5 class="card-title">{{landmark.landmark_name}}</h5>
-        <p class="card-text">
+        <p id="description" class="card-text">
           {{landmark.landmark_description}}
         </p>
         <p class="card-text">
@@ -115,5 +115,12 @@ export default {
   background-color: #143050;
   height: 85vh;
   place-items: center;
+}
+#description {
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 20px;
+  
+  
 }
 </style>
