@@ -1,20 +1,18 @@
 <template>
-  <div class="input-wrapper">
-    <input type="text" placeholder="Search Landmarks" v-model="Filter" />
-
+  <div>
+    <div class="searchBox">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+                
+            <input class="searchInput" type="text" name="" placeholder="Search" v-model="Filter">
+            <button class="searchButton" href="#">
+                
+            </button>
+        </div>
     <landmark-list v-bind:filteredLandmarks="filteredLandmarks"></landmark-list>
   </div>
+
+
 </template>
-
-
-
-
-
-
-
-
-
-
 
 
 <script>
@@ -53,28 +51,62 @@ export default {
 </script>
 
 <style scoped>
-* {
-  font-size: 1.5rem;
+body {
+    background-image: linear-gradient(to right , #cb2d3e , #ef473a);
 }
-.input-wrapper {
-  display: block;
-  align-items: center;
-  justify-content: space-between;
-  background: #e26d5c;
-  padding: 0.5rem;
-  border-radius: 00.5rem;
-  color: white;
-  box-shadow: 0.25rem 0.25rem 0rem #f0b2a8;
+
+.searchBox {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform:  translate(-50%,50%);
+    background: white;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+
 }
-input {
-  margin: 0 0.5rem 0 0.5rem;
-  width: 100%;
-  border: none;
-  outline: none;
-  background: #e26d5c;
-  color: white;
+
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
 }
-::placeholder {
-  color: #f0b2a8;
+
+.searchBox:hover > .searchButton {
+  background: white;
+  color : #2f3640;
 }
+
+.searchButton {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}}
 </style>
