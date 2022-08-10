@@ -55,21 +55,6 @@ export default {
 
 <style scoped>
 
-<<<<<<< HEAD
-div{
-  display: flex;
-  align-content: space-around;
-  justify-content: space-around;
-  
-}
-#map{
-  
-width:100%;
-
-max-height:100%;
-}
-=======
 
 
->>>>>>> 6ae5fe2439baa0e835df97a04f679794fa613ca6
 </style>
