@@ -23,7 +23,7 @@
       :src="getImageURL(landmark.landmark_id)"
     />
 
-    <the-map v-bind:landmark="landmark" class="gridItem" id="map"></the-map>
+    <the-map v-bind:landmark="landmark" class="gridItem" id="map-container"></the-map>
   </div>
 </template>
 
@@ -92,7 +92,7 @@ export default {
   width: 90%;
   height: 90%;
 }
-#map {
+#map-container {
   grid-area: map;
   width: 90%;
   height: 90%;
@@ -110,7 +110,7 @@ export default {
 }
 
 #gridContainer {
-  display: grid;
+ display: grid;
   grid-template-columns: 3fr 1fr 2fr;
   grid-template-areas:
     "picture description map"
@@ -120,7 +120,8 @@ export default {
   column-gap: 50px;
   background-color: #143050;
   height: 85vh;
-  place-items: center;
+  place-items: center; 
+  
 }
 #description {
   padding-left: 50px;

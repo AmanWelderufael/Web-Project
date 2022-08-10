@@ -1,6 +1,6 @@
 <template>
   <div>
-       <GmapMap
+       <GmapMap id="map"
       :center="coordinates"
       :zoom="16"
       map-type-id="terrain"
@@ -53,6 +53,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
+div{
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  
+}
+#map{
+  
+width:100%;
+
+max-height:100%;
+}
 </style>
