@@ -57,19 +57,20 @@ export default {
   height: 90%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 176, 155, 0.5),
-    rgba(150, 201, 61, 1)
+    rgba(0, 59, 176, 0.5),
+    rgb(61, 171, 201)
   );
 }
+
 .card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 90%;
+  height: 100%;
 }
 .card-title {
   font-weight: bold;
-  font-size: 200%;
+  font-size: 100%;
 }
 #name {
   font-weight: bold;
@@ -78,7 +79,7 @@ export default {
 }
 #description {
   grid-area: description;
-  font-size: 100%;
+  font-size: 80%;
 }
 #landmark-picture {
   grid-area: picture;
@@ -120,7 +121,7 @@ export default {
 #description {
   padding-left: 80px;
   padding-right: 80px;
-  font-size: 25px;
+  font-size: 20px;
   margin: auto;
 }
 
