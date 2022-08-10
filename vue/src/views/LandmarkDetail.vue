@@ -83,8 +83,8 @@ export default {
 }
 #landmark-picture {
   grid-area: picture;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 #map-container {
@@ -92,6 +92,7 @@ export default {
   width: 30%;
   height: auto;
   width: auto;
+  margin-left: 30px;
 }
 .gridItem {
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
@@ -100,8 +101,8 @@ export default {
 .textBox {
   background: linear-gradient(
     to bottom,
-    rgba(0, 176, 155, 0.5),
-    rgba(150, 201, 61, 1)
+    rgba(81, 94, 112, 0.5),
+    rgb(222, 226, 238)
   );
 }
 
@@ -113,7 +114,7 @@ export default {
     "picture description map"
     "picture description map";
   gap: 20px;
-  column-gap: 30px;
+  column-gap: 0px;
   background-color: #143050;
   height: 85vh;
   place-items: center; 
@@ -124,6 +125,7 @@ export default {
   padding-right: 80px;
   font-size: 20px;
   margin: auto;
+ 
 }
 
 @media screen and (max-width: 1024px) {
