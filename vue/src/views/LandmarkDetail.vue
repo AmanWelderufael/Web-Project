@@ -76,10 +76,10 @@ export default {
   font-size: 400%;
   grid-area: name;
 }
-/* #description {
+#description {
   grid-area: description;
-  font-size: 150%;
-} */
+  font-size: 100%;
+}
 #landmark-picture {
   grid-area: picture;
   width: 90%;
@@ -122,5 +122,27 @@ export default {
   padding-right: 80px;
   font-size: 25px;
   margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  #gridContainer {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 35px;
+    grid-template-areas:
+      "picture description"
+      "map map";
+  }
+
+  @media screen and (max-width: 450px) {
+    #gridContainer {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "picture"
+        "description"
+        "map";
+      align-items: center;
+    }
+  }
 }
 </style>
