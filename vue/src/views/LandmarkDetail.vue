@@ -13,7 +13,12 @@
         <p class="card-text">
           review-2
         </p>
-        <a href="#" class="card-link">Add to Itinerary</a>
+
+      
+      <button v-on:click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
+      
+
+        <router-link class="btn" v-bind:to="{ name: 'itinerary', params:{id:landmark.landmark_id}}">Add Landmark to Itinerary</router-link>
       </div>
     </div>
 
@@ -36,7 +41,9 @@ export default {
 
   data() {
     return {
-      landmark: "",
+      itinerary: "",
+      landmark: ""
+      
     };
   },
   components:{
@@ -52,7 +59,13 @@ export default {
     getImageURL(id) {
       console.log("../assets/" + id + ".jpg");
       return require("../assets/" + id + ".jpg");
+    
     },
+    
+    addLandmarkToItinerary(){
+        
+    }
+    
   },
 };
 </script>

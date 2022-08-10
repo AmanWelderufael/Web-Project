@@ -4,7 +4,7 @@
     <div class="info">
       <h1>{{ landmark.landmark_name }}</h1>
       <p>{{ landmark.landmark_description }}</p>
-      <a href="#" class="btn">Add Itinerary</a>
+      <router-link class="btn" v-bind:to="{ name: 'itinerary', params:{id:landmark.landmark_id}}">Add Itinerary</router-link>
       <router-link class="btn" v-bind:to="{ name: 'Landmark-details', params:{id:landmark.landmark_id}}">Details</router-link>
 
     </div>
