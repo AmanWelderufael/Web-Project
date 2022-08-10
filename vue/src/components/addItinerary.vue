@@ -1,16 +1,11 @@
 <template>
-  
-</template>
+<div></div></template>
 
 <script>
 export default {
-data() {
-    return {
-   itinerary:{}
-
 }
+
 </script>
 
 <style>
-
 </style>
