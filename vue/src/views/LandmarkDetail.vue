@@ -1,18 +1,13 @@
 <template>
   <div id="gridContainer">
-
-    <div class="card gridItem" style="width: 18rem">
+    <div class="card gridItem" style="width: 20rem">
       <div class="card-body">
-        <h5 class="card-title">{{landmark.landmark_name}}</h5>
+        <h5 class="card-title">{{ landmark.landmark_name }}</h5>
         <p id="description" class="card-text">
-          {{landmark.landmark_description}}
+          {{ landmark.landmark_description }}
         </p>
-        <p class="card-text">
-          review-1
-        </p>
-        <p class="card-text">
-          review-2
-        </p>
+        <p class="card-text">review-1</p>
+        <p class="card-text">review-2</p>
         <a href="#" class="card-link">Add to Itinerary</a>
       </div>
     </div>
@@ -29,7 +24,7 @@
 
 <script>
 import LandmarkService from "../services/LandmarkService";
-import TheMap from "../components/map.vue"
+import TheMap from "../components/map.vue";
 
 export default {
   name: "landmark-details",
@@ -39,9 +34,8 @@ export default {
       landmark: "",
     };
   },
-  components:{
-    TheMap
-
+  components: {
+    TheMap,
   },
   created() {
     LandmarkService.getByID(this.$route.params.id).then((response) => {
@@ -58,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-.card{
+.card {
   grid-area: description;
   height: 90%;
   background: linear-gradient(
@@ -66,15 +60,14 @@ export default {
     rgba(0, 176, 155, 0.5),
     rgba(150, 201, 61, 1)
   );
-
 }
-.card-body{
+.card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 90%;
 }
-.card-title{
+.card-title {
   font-weight: bold;
   font-size: 200%;
 }
@@ -91,11 +84,13 @@ export default {
   grid-area: picture;
   width: 90%;
   height: 90%;
+  object-fit: cover;
 }
 #map {
   grid-area: map;
-  width: 90%;
-  height: 90%;
+  width: 30%;
+  height: auto;
+  width: auto;
 }
 .gridItem {
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
@@ -117,16 +112,15 @@ export default {
     "picture description map"
     "picture description map";
   gap: 20px;
-  column-gap: 50px;
+  column-gap: 30px;
   background-color: #143050;
   height: 85vh;
   place-items: center;
 }
 #description {
-  padding-left: 50px;
-  padding-right: 50px;
-  font-size: 20px;
-  
-  
+  padding-left: 80px;
+  padding-right: 80px;
+  font-size: 25px;
+  margin: auto;
 }
 </style>
