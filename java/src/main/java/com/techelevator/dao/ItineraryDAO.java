@@ -1,7 +1,12 @@
 package com.techelevator.dao;
 
-public interface ItineraryDAO {
+import com.techelevator.model.Itinerary;
 
-    public void createItinerary (int landmarkId, int userId);
+import java.util.List;
+
+public interface ItineraryDAO {
+    public void createItinerary(int userId, Itinerary itinerary);
     public void deleteItinerary(int landmarkId); //What else can we use to delete Itinerary?
+    public void addToItinerary(int itineraryId, int landmarkId);
+    public List<Itinerary> getItinerariesForUser(int userId);
 }

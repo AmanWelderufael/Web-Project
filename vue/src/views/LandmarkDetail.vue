@@ -18,7 +18,7 @@
       :src="getImageURL(landmark.landmark_id)"
     />
 
-    <the-map v-bind:landmark="landmark" class="gridItem" id="map"></the-map>
+    <the-map v-bind:landmark="landmark" class="gridItem" id="map-container"></the-map>
   </div>
 </template>
 
@@ -57,19 +57,20 @@ export default {
   height: 90%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 176, 155, 0.5),
-    rgba(150, 201, 61, 1)
+    rgba(0, 59, 176, 0.5),
+    rgb(61, 171, 201)
   );
 }
+
 .card-body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 90%;
+  height: 100%;
 }
 .card-title {
   font-weight: bold;
-  font-size: 200%;
+  font-size: 100%;
 }
 #name {
   font-weight: bold;
@@ -78,7 +79,7 @@ export default {
 }
 #description {
   grid-area: description;
-  font-size: 100%;
+  font-size: 80%;
 }
 #landmark-picture {
   grid-area: picture;
@@ -86,7 +87,7 @@ export default {
   height: 100%;
   object-fit: cover;
 }
-#map {
+#map-container {
   grid-area: map;
   width: 30%;
   height: auto;
@@ -106,7 +107,7 @@ export default {
 }
 
 #gridContainer {
-  display: grid;
+ display: grid;
   grid-template-columns: 3fr 1fr 2fr;
   grid-template-areas:
     "picture description map"
@@ -116,12 +117,13 @@ export default {
   column-gap: 0px;
   background-color: #143050;
   height: 85vh;
-  place-items: center;
+  place-items: center; 
+  
 }
 #description {
   padding-left: 80px;
   padding-right: 80px;
-  font-size: 25px;
+  font-size: 20px;
   margin: auto;
  
 }
