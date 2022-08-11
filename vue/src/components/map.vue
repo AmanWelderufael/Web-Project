@@ -7,11 +7,9 @@
       style="width: 500px; height: 600px"
     >
       <GmapMarker
-        :key="index"
-        v-for="(m, index) in landmark"
-        :position="m.position"
+        :position="coordinates"
         :clickable="true"
-        :draggable="true"
+        :draggable="false"
         @click="center = m.position"
       />
     </GmapMap>
@@ -38,6 +36,7 @@ export default {
   created(){
     this.coordinates.lat = this.landmark.latitude;
     this.coordinates.lng = this.landmark.longitude;
+    this.coordinates.label = this.landmark.landmark_name;
   },
   methods:{
     getCoordinates(){
@@ -55,6 +54,7 @@ export default {
 
 <style scoped>
 
+<<<<<<< HEAD
 div{
   display: flex;
   align-content: space-around;
@@ -67,4 +67,8 @@ width:100%;
 
 max-height:100%;
 }
+=======
+
+
+>>>>>>> 39dde5a94af1c86b56921c18c4fc90aa53b9d4a1
 </style>
