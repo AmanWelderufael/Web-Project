@@ -125,8 +125,7 @@ export default {
   padding-right: 80px;
   font-size: 20px;
   margin: auto;
- 
-}
+ }
 
 @media screen and (max-width: 1024px) {
   #gridContainer {
