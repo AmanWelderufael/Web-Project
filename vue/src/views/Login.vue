@@ -34,7 +34,7 @@
       />
        <button  class="submit1" type="submit">Sign in</button>
 
-      <router-link class="account" v-bind:to="{ name: 'register' }">Need an account?</router-link>
+      <router-link class="account" v-bind:to="{ name: 'register' }">Create an account</router-link>
       
      
     </form>
