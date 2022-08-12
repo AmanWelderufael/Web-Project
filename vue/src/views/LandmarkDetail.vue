@@ -18,7 +18,11 @@
       :src="getImageURL(landmark.landmark_id)"
     />
 
-    <the-map v-bind:landmark="landmark" class="gridItem" id="map-container"></the-map>
+    <the-map
+      v-bind:landmark="landmark"
+      class="gridItem"
+      id="map-container"
+    ></the-map>
   </div>
 </template>
 
@@ -54,7 +58,7 @@ export default {
 <style scoped>
 .card {
   grid-area: description;
-  height: 90%;
+  height: 100%;
   background: linear-gradient(
     to bottom,
     rgba(0, 59, 176, 0.5),
@@ -89,10 +93,13 @@ export default {
 }
 #map-container {
   grid-area: map;
-  width: 30%;
-  height: auto;
-  width: auto;
+  width: 80%;
+  /* height: auto; */
+  /* width: auto; */
   margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 75px;
+  height: 100;
 }
 .gridItem {
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
@@ -107,7 +114,7 @@ export default {
 }
 
 #gridContainer {
- display: grid;
+  display: grid;
   grid-template-columns: 3fr 1fr 2fr;
   grid-template-areas:
     "picture description map"
@@ -116,16 +123,15 @@ export default {
   gap: 20px;
   column-gap: 0px;
   background-color: #143050;
-  height: 85vh;
-  place-items: center; 
-  
+  height: 90vh;
+  place-items: center;
 }
 #description {
   padding-left: 80px;
   padding-right: 80px;
   font-size: 20px;
   margin: auto;
- }
+}
 
 @media screen and (max-width: 1024px) {
   #gridContainer {
