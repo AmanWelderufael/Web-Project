@@ -4,13 +4,15 @@
     <nav>
       <ul class="nav_links">
         <li><a href="#">About</a></li>
-        <li>
+        <li><a href="#"><router-link v-bind:to="{ name: 'Landmark-search' }">Search</router-link></a></li>
+        
+        <!-- <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
               >Search</router-link
             ></a
-          >
-        </li>
+          > -->
+        <!-- </li> -->
         <li><a href="#">contact</a></li>
         <li class="login">
           <router-link
@@ -25,11 +27,11 @@
           >
         </li>
         <li>
-          <router-link
+          <!-- <router-link
             v-bind:to="{ name: 'register' }"
             v-if="$store.state.token == ''"
             >Register</router-link
-          >
+          > -->
           <router-link
             v-bind:to="{ name: 'register' }"
             v-if="$store.state.token != ''"
