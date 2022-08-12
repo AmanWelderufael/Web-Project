@@ -14,7 +14,7 @@ import TheLandmark from './TheLandmark.vue';
 export default {
 
   props:{
-    filteredLandmarks: []
+    filteredLandmarks: Array
   },
   
   components: { TheLandmark },
