@@ -4,9 +4,10 @@
     <div class="info">
       <h1>{{ landmark.landmark_name }}</h1>
       <p>{{ landmark.landmark_description }}</p>
-      <a href="#" class="btn">Add Itinerary</a>
+      <a v-if="$store.state.token != ''" href="#" class="btn">Add Itinerary
+      </a>
       <router-link class="btn" v-bind:to="{ name: 'Landmark-details', params:{id:landmark.landmark_id}}">Details</router-link>
-
+      
     </div>
 
   </div>
