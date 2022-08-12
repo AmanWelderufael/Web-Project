@@ -46,4 +46,10 @@ public class ItineraryController {
 
 
     }
+
+    @RequestMapping(path="/Itinerary/landmark", method = RequestMethod.GET)
+    public List<Landmark> getLandmarksOnItinerary(@Valid @RequestBody Itinerary itinerary){
+        return itineraryDAO.getLandmarksOnItinerary(itinerary.getItinerary_id());
+
+    }
 }
