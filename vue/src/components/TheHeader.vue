@@ -6,13 +6,13 @@
         <li><a href="#">About</a></li>
         <li><a href="#"><router-link v-bind:to="{ name: 'Landmark-search' }">Search</router-link></a></li>
         
-        <li>
+        <!-- <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
               >Search</router-link
             ></a
-          >
-        </li>
+          > -->
+        <!-- </li> -->
         <li><a href="#">contact</a></li>
         <li class="login">
           <router-link

@@ -35,7 +35,7 @@
       />
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account</button>
-        
+
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       
       
@@ -100,7 +100,7 @@ export default {
   margin: 0;
 padding: 0;
 box-sizing: border-box;
- background-image:url("../assets/15.jpg") ;
+ background-image:url("../assets/18.jpg") ;
  background-size: cover;
  background-position:center center;
  display: flex;
