@@ -4,12 +4,40 @@
     <div class="info">
       <h1>{{ landmark.landmark_name }}</h1>
       <p>{{ landmark.landmark_description }}</p>
-      <a v-if="$store.state.token != ''" href="#" class="btn">Add Itinerary
-      </a>
-      <router-link class="btn" v-bind:to="{ name: 'Landmark-details', params:{id:landmark.landmark_id}}">Details</router-link>
+      <div id="button-container">
+      <div v-if="$store.state.token != '' && this.itineraries.length != 0" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            ></label
+          >
+        </div>
+        <select
+          v-model="selectedItinerary"
+          class="custom-select"
+          id="inputGroupSelect01"
+        >
+          <option selected disabled>Add to Itinerary</option>
+          <option
+            v-for="itinerary in itineraries"
+            v-bind:key="itinerary.itinerary_id"
+            v-bind:value="itinerary.itinerary_id"
+          >
+            {{ itinerary.itinerary_name }}
+          </option>
+        </select>
+        
+      </div>
       
+      <router-link
+        class="btn"
+        v-bind:to="{
+          name: 'Landmark-details',
+          params: { id: landmark.landmark_id },
+        }"
+        >Details</router-link
+      >
     </div>
-
+    </div>
   </div>
 
   <!-- <img :src="getImageURL(landmark.landmark_id)">
@@ -26,9 +54,16 @@
 
 
 <script>
+import itineraryService from "../services/ItineraryService";
 export default {
   props: {
     landmark: Object,
+  },
+  data() {
+    return {
+      itineraries: [],
+      selectedItinerary: "",
+    };
   },
 
   methods: {
@@ -36,6 +71,11 @@ export default {
       console.log("../assets/" + id + ".jpg");
       return require("../assets/" + id + ".jpg");
     },
+  },
+  created() {
+    itineraryService.search().then((response) => {
+      this.itineraries = response.data;
+    });
   },
 };
 </script>
@@ -53,6 +93,10 @@ body {
   justify-content: center;
   align-items: center;
   background: #222;
+}
+#button-container{
+  display: flex;
+  justify-content: space-around;
 }
 .wrapper {
   /* display: flex;
