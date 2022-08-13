@@ -77,7 +77,7 @@ export default {
   margin: 0;
 padding: 0;
 box-sizing: border-box;
- background-image:url("../assets/20.jpg") ;
+ /* background-image:url("../assets/20.jpg") ; */
  background-size: cover;
  background-position:center center;
  display: flex;
@@ -101,11 +101,14 @@ box-sizing: border-box;
   /* padding: 50px 30px; */
   margin: 50px 30px;
   border-radius: 10px;
-  box-shadow:7px 7px 60px #000;
+  box-shadow:20px 20px 70px rgb(3, 43, 57);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 50vh;
+  align-content: center;
+  color: black;
+
 }
 .input-group-mb-3{
 display: flex;
@@ -113,9 +116,35 @@ flex-direction: column;
 flex-shrink: 2;
 }
 .addItineraryButton{
-  height: 10vh;
+  /* height: 10vh;
+  margin-left: 60px;
+  margin-top: 20px;
+  transition: 2ms; */
+  width: 100px;
+  height: 100px;
+  background: rgb(205, 211, 214);
+  transition: width 1s;
+  transition-timing-function: ease-out;
+  margin-top: 20px;
+  margin-left: 60px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px rgb(3, 43, 57);
+   background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+   border: none;
+  
+}
+.addItineraryButton:hover {
+  width: 200px;
 }
 #intro {
   margin: 30px;
 }
+/* .addItineraryButton{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+} */
+
+
+
 </style>
