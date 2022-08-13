@@ -1,11 +1,17 @@
 <template>
   <div class="header">
-    <img class="logo" src="" alt="logo" />
+    <img class="logo" src="" alt="NYsee" />  
     <nav>
       <ul class="nav_links">
         <li><a href="#">About</a></li>
-        <li><a href="#"><router-link v-bind:to="{ name: 'Landmark-search' }">Search</router-link></a></li>
-        
+        <li>
+          <a href="#"
+            ><router-link v-bind:to="{ name: 'Landmark-search' }"
+              >Search</router-link
+            ></a
+          >
+        </li>
+
         <!-- <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
@@ -27,24 +33,30 @@
           >
         </li>
         <li>
-          <!-- <router-link
-            v-bind:to="{ name: 'register' }"
-            v-if="$store.state.token == ''"
-            >Register</router-link
-          > -->
           <router-link
-            v-bind:to="{ name: 'register' }"
+            v-bind:to="{ name: 'home' }"
+            v-if="$store.state.token == ''"
+            >Home</router-link
+          >
+          <router-link
+            v-bind:to="{ name: 'home' }"
             v-if="$store.state.token != ''"
-            >Register</router-link
+            >Home</router-link
           >
         </li>
+        <li>
+          <p v-if="$store.state.token != ''"></p>
+          Welcome
+        </li>
+
+        <li>{{ $store.state.user.username }}</li>
       </ul>
     </nav>
 
     <div>
-      <p v-if="$store.state.token != ''">
+      <!-- <p v-if="$store.state.token != ''">
         Welcome {{ $store.state.user.username }}
-      </p>
+      </p> -->
     </div>
   </div>
 </template>
@@ -64,6 +76,7 @@ img {
   widows: 20px;
   margin-right: auto;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
