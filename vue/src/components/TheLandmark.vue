@@ -1,8 +1,17 @@
 <template>
   <div class="card">
-    <img :src="getImageURL(landmark.landmark_id)" />
+   
+
+    
+    <img  :src="getImageURL(landmark.landmark_id)" />
+    
+    <div class = "makeRibbon">
+   <h3 class="button ribbon">{{ landmark.landmark_name }}</h3>
+  
+</div>
+  
     <div class="info">
-      <h1>{{ landmark.landmark_name }}</h1>
+      
       <p>{{ landmark.landmark_description }}</p>
       <div id="button-container">
       <div v-if="$store.state.token != '' && this.itineraries.length != 0" class="input-group mb-3">
@@ -182,4 +191,102 @@ body {
 .card .info .btn:hover {
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
+
+
+
+
+
+.makeRibbon {
+  font-family:futura;
+  color:white;
+
+   text-align:center;
+  margin:2em auto 4em;
+  max-width:600px;
+
+}
+
+
+
+
+
+h3 {
+  text-decoration:none;
+  color:rgb(10, 3, 9);
+  overflow:hidden;
+  display:block;
+  margin:0.75em;
+}
+
+.button {
+  letter-spacing:.5em;
+  text-decoration:center;
+  padding:0.75em 1.25em 0.75em 1.75em;
+  border-color:white;
+  border-width:2px;
+  border-style:solid;
+  white-space: nowrap;
+  -webkit-transition: border-color 500ms ease, color 250ms ease;;
+  -moz-transition: border-color 500ms ease, color 250ms ease;;
+  -ms-transition: border-color 500ms ease, color 250ms ease;;
+  -o-transition: border-color 500ms ease, color 250ms ease;;
+  transition: border-color 500ms ease, color 250ms ease;;
+}
+
+
+
+.ribbon {
+  border-width:2px 0;
+  position:relative;
+  display:block;
+  padding:0.75em 0 0.75em 0.5em;
+}
+
+.ribbon:before {
+  content: "";
+  display:inline-block;
+  border-bottom-width:2px;
+  border-left-width:2px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  -webkit-transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  -o-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  position:absolute;
+  top:-50%;
+  bottom:50%;
+  left:1.6em;
+  right:0;
+}
+
+.ribbon:after {
+  content: "";
+  display:inline-block;
+  border-bottom-width:2px;
+  border-right-width:2px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  position:absolute;
+  top:-50%;
+  bottom:50%;
+  left:0;
+  right:1.6em;
+}
+
+
+
+
 </style>
