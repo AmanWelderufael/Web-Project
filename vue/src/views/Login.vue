@@ -85,7 +85,7 @@ export default {
 margin: 0;
 padding: 0;
 box-sizing: border-box;
- background-image:url("../assets/17.jpg") ;
+ background-image:url("../assets/15.jpg") ;
  background-size: cover;
  background-position:center center;
 
@@ -138,7 +138,7 @@ h1{
 }
 
 .account{
-   color: rgb(72, 124, 221);
+   color: rgb(255, 255, 255);
    font-family: Arial, Helvetica, sans-serif;
   
 }

@@ -36,7 +36,7 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account</button>
 
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <router-link class="has-account" :to="{ name: 'login' }">Have an account?</router-link>
       
       
     </form>
@@ -145,6 +145,10 @@ h1{
   text-transform: uppercase;
   font-size: 1.2em;
   opacity: .8;
+}
+
+.has-account{
+  color:azure;
 }
 
 

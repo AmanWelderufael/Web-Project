@@ -61,6 +61,7 @@ export default {
     },
     submitItinerary() {
       itineraryService.addItinerary(this.newItinerary);
+      this.showForm = false;
     },
   },
   created() {
@@ -81,14 +82,15 @@ box-sizing: border-box;
  background-position:center center;
  display: flex;
  justify-content: space-evenly;
-}
-div{
-  display: flex;
-  width: 100%;
+ width: 100%;
   height: 100vh;
+}
+/* div{
+  display: flex;
+  
   justify-content: center;
   align-items: center;
-}
+} */
 #make-itinerary{
    position:absolute;
   top:50%;
@@ -103,13 +105,16 @@ div{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  height: 50vh;
 }
 .input-group-mb-3{
 display: flex;
 flex-direction: column;
 flex-shrink: 2;
 }
-
+.addItineraryButton{
+  height: 10vh;
+}
 #intro {
   margin: 30px;
 }
