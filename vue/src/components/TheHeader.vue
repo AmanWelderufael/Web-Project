@@ -1,11 +1,24 @@
 <template>
   <div class="header">
-    <img class="logo" src="" alt="logo" />
+    <img class="logo" src="" alt="NYsee" />
     <nav>
       <ul class="nav_links">
+        <div class="welcome" >
+          <p class="text-welcome" v-if="$store.state.token != ''">Welcome</p>
+
+          <li>{{ $store.state.user.username }}</li>
+        </div>
+
+
         <li><a href="#">About</a></li>
-        <li><a href="#"><router-link v-bind:to="{ name: 'Landmark-search' }">Search</router-link></a></li>
-        
+        <li>
+          <a href="#"
+            ><router-link v-bind:to="{ name: 'Landmark-search' }"
+              >Search</router-link
+            ></a
+          >
+        </li>
+
         <!-- <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
@@ -27,24 +40,30 @@
           >
         </li>
         <li>
-          <!-- <router-link
-            v-bind:to="{ name: 'register' }"
-            v-if="$store.state.token == ''"
-            >Register</router-link
-          > -->
           <router-link
-            v-bind:to="{ name: 'register' }"
+            v-bind:to="{ name: 'home' }"
+            v-if="$store.state.token == ''"
+            >Home</router-link
+          >
+          <router-link
+            v-bind:to="{ name: 'home' }"
             v-if="$store.state.token != ''"
-            >Register</router-link
+            >Home</router-link
           >
         </li>
+        <!-- <li>
+          <p v-if="$store.state.token != ''"></p>
+          Welcome
+        </li>
+
+        <li>{{ $store.state.user.username }}</li> -->
       </ul>
     </nav>
 
     <div>
-      <p v-if="$store.state.token != ''">
+      <!-- <p v-if="$store.state.token != ''">
         Welcome {{ $store.state.user.username }}
-      </p>
+      </p> -->
     </div>
   </div>
 </template>
@@ -59,11 +78,20 @@ export default {
 </script>
 
 <style scoped>
+.welcome {
+  
+  padding: 10px;
+display: flex;
+justify-content: center;
+  
+  
+}
 img {
   cursor: pointer;
   widows: 20px;
   margin-right: auto;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;

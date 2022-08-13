@@ -1,5 +1,8 @@
 <template>
   <div class = "">
+    <!-- <div class="ribbon">
+
+    </div> -->
       
       <the-landmark class = "card" v-bind:landmark ="landmark" v-for="landmark in filteredLandmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_description}}</the-landmark>
       
@@ -51,7 +54,12 @@ export default {
     margin-bottom: 2%;
     flex: 0 1 32%;
   }
-
+.ribbon{
+  position: absolute;
+  width: 280px;
+  height: 50px;
+  background: #af43f1;
+}
 
 
 </style>

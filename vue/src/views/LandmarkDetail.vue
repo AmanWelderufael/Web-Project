@@ -3,6 +3,7 @@
     <div class="card gridItem" style="width: 20rem">
       <div class="card-body">
         <h5 class="card-title">{{ landmark.landmark_name }}</h5>
+        
         <p id="description" class="card-text">
           {{ landmark.landmark_description }}
         </p>
@@ -35,7 +36,9 @@ export default {
 
   data() {
     return {
-      landmark: "",
+      itinerary: "",
+      landmark: ""
+      
     };
   },
   components: {
@@ -50,7 +53,13 @@ export default {
     getImageURL(id) {
       console.log("../assets/" + id + ".jpg");
       return require("../assets/" + id + ".jpg");
+    
     },
+    
+    addLandmarkToItinerary(){
+        
+    }
+    
   },
 };
 </script>
