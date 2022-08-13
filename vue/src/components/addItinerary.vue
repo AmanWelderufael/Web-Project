@@ -1,8 +1,8 @@
 <template>
   <div id="main">
-        <div class="status-message-error">{{errorMsg}}</div>
+    <div class="status-message-error">{{ errorMsg }}</div>
 
-  <form class="itineraryForm" v-on:submit.prevent="submitForm">
+    <form class="itineraryForm" v-on:submit.prevent="submitForm">
       <div class="form-group">
         <label for="itinerary_name">Itinerary Name</label>
         <input
@@ -12,8 +12,8 @@
           v-model="itinerary.itinerary_name"
         />
       </div>
-      
- <div class="form-group">
+
+      <div class="form-group">
         <label for="itinerary_name">Itinerary Name</label>
         <input
           id="itinerary_name"
@@ -21,11 +21,12 @@
           class="form-control"
           v-model="itinerary.itinerary_name"
         />
-      
- <button class="btn btn-submit">Submit</button>
-      <button class="btn btn-cancel" type="cancel" v-on:click="cancelForm">Cancel</button>
 
-
+        <button class="btn btn-submit">Submit</button>
+        <button class="btn btn-cancel" type="cancel" v-on:click="cancelForm">
+          Cancel
+        </button>
+      </div>
     </form>
   </div>
 </template>
@@ -38,46 +39,41 @@ export default {
   data() {
     return {
       itinerary: {
-        itinerary_name: ""
-
+        itinerary_name: "",
       },
-      errorMsg: ''
-     //come back and add landmark to be added to itinerary
+      errorMsg: "",
+      //come back and add landmark to be added to itinerary
     };
+  },
+  methods: {
+    submitForm() {
+      itineraryService
+        .addItinerary(this.itinerary)
+        .then((response) => {
+          if (response.status === 201) {
+            this.$router.push("search");
+          }
+        })
+        .catch((error) => {
+          this.handleErrorResponse(error);
+        });
     },
-     methods: {
-      submitForm() {
 
-          itineraryService.addItinerary(this.itinerary).then(response => {
-              if(response.status === 201) {
-                  this.$router.push('search');
-              }
-          }).catch(error =>{
-             
-              this.handleErrorResponse(error);
-          });
-      },
-
-      handleErrorResponse(error) {
-
-        
-        if (error.response) {
-          this.errorMsg = 'Error adding new itinerary. Error: ' + error.response.status;
-        }
-        else if (error.request) {
-          this.errorMsg = 'Error adding a new itinerary. Server could not be reached.'
-        }
-        else {
-          this.errorMsg = 'GoodBye'
-        }
-
-      },
-       cancelForm() {
-          this.$router.push('search');
-
-     }
-     }
-
+    handleErrorResponse(error) {
+      if (error.response) {
+        this.errorMsg =
+          "Error adding new itinerary. Error: " + error.response.status;
+      } else if (error.request) {
+        this.errorMsg =
+          "Error adding a new itinerary. Server could not be reached.";
+      } else {
+        this.errorMsg = "GoodBye";
+      }
+    },
+    cancelForm() {
+      this.$router.push("search");
+    },
+  },
 };
 </script>
 
@@ -169,6 +165,4 @@ select.form-control {
   background-color: #f08080;
   margin: 20px;
 }
-
-
 </style>

@@ -21,9 +21,9 @@ public class JDBCItineraryDAO implements ItineraryDAO{
     //This will create itinerary
     @Override
     public void createItinerary(int userId, Itinerary itinerary){
-        String sqlItinerary = "INSERT INTO itinerary (user_id, itinerary_name) VALUES (? , ?)";
+        String sqlItinerary = "INSERT INTO itinerary (user_id, itinerary_name, starting_landmark_id) VALUES (? , ?, ?)";
 
-        jdbcTemplate.update(sqlItinerary,userId, itinerary.getItinerary_name());
+        jdbcTemplate.update(sqlItinerary,userId, itinerary.getItinerary_name(), itinerary.getStarting_landmark_id());
     }
 
     @Override
@@ -55,6 +55,25 @@ public class JDBCItineraryDAO implements ItineraryDAO{
         }
         return itineraries;
     }
+    public List<Landmark> getLandmarksOnItinerary(int itineraryId){
+        List<Landmark> landmarks = new ArrayList<>();
+        String sql = "select * \n" +
+                "from landmark\n" +
+                "join landmark_itinerary on landmark.landmark_id = landmark_itinerary.landmark_id\n" +
+                "join itinerary on itinerary.itinerary_id = landmark_itinerary.itinerary_id\n" +
+                "\n" +
+                "where itinerary.itinerary_id = ?\n";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itineraryId);
+        while(results.next()){
+            Landmark landmark = mapRowToLandmark(results);
+            landmarks.add(landmark);
+
+        }
+        return landmarks;
+
+    }
+
 
     private Itinerary mapRowToItinerary(SqlRowSet results) {
         Itinerary itinerary = new Itinerary();
@@ -66,5 +85,22 @@ public class JDBCItineraryDAO implements ItineraryDAO{
 
         return itinerary;
 
+    }
+    private Landmark mapRowToLandmark(SqlRowSet results) {
+        Landmark landmark = new Landmark();
+
+
+        landmark.setLandmark_name(results.getString("landmark_name"));
+        landmark.setLandmark_id(results.getInt("landmark_id"));
+        landmark.setAddress_id(results.getInt("address_id"));
+        landmark.setLandmark_description(results.getString("landmark_description"));
+        landmark.setStreet_number(results.getInt("street_number"));
+        landmark.setStreet_name(results.getString("street_name"));
+        landmark.setCity_name(results.getString("city_name"));
+        landmark.setState_name(results.getString("state_name"));
+        landmark.setZip_code(results.getInt("zip_code"));
+        landmark.setLatitude(results.getFloat("latitude"));
+        landmark.setLongitude(results.getFloat("longitude"));
+        return landmark;
     }
 }

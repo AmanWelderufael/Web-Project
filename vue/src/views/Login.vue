@@ -1,5 +1,6 @@
 <template>
   <div id="login" class="text-center">
+    <section id= "container">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
@@ -31,9 +32,13 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+       <button  class="submit1" type="submit">Sign in</button>
+
+      <p ></p> <router-link class="account" v-bind:to="{ name: 'register' }">Create an account</router-link>
+      
+     
     </form>
+    </section>
   </div>
 </template>
 
@@ -74,3 +79,78 @@ export default {
   }
 };
 </script>
+<style scoped>
+
+#login.text-center{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+ background-image:url("../assets/15.jpg") ;
+ background-size: cover;
+ background-position:center center;
+
+ display: flex;
+
+
+}
+div{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.form-signin{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+  width: 380px;
+  padding: 50px 30px;
+  border-radius: 10px;
+  box-shadow:7px 7px 60px #000;
+  display: flex;
+  flex-direction: column;
+
+}
+h1{
+  text-transform: uppercase;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.form-signin input{
+  width: 100%;
+  display: block;
+  padding: 10px;
+  color: #222;
+  border: none;
+  outline: none;
+  margin: 1em 0;
+}
+.form-signin input[type="submit"]{
+  background:rgb(182, 7, 7);
+  color:#fff;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  opacity: .8;
+}
+
+.account{
+   color: rgb(255, 255, 255);
+   font-family: Arial, Helvetica, sans-serif;
+  
+}
+.submit1{
+
+  background: rgb(1, 14, 22);
+  color:#fff;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  opacity: .8;
+  color: rgb(245, 237, 244);
+  border:none;
+}
+
+</style>
