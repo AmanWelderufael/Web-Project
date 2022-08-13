@@ -16,5 +16,7 @@ export default {
         axios.post('/Itinerary/'+ itinerary_id, landmark)
     }
 
+    
+
 
 }

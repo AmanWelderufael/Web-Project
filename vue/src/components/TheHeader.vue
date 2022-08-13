@@ -1,6 +1,17 @@
 <template>
   <div class="header">
-    <img class="logo" src="" alt="NYsee" />  
+
+    
+    
+     <router-link class="logo"
+            v-bind:to="{ name: 'home' }"
+          
+            >LOGO</router-link
+          >
+          
+<!-- Add the logo as an image above --> 
+
+
     <nav>
       <ul class="nav_links">
         <li><a href="#">About</a></li>
@@ -71,7 +82,7 @@ export default {
 </script>
 
 <style scoped>
-img {
+.logo {
   cursor: pointer;
   widows: 20px;
   margin-right: auto;
