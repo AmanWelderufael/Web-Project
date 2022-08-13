@@ -60,8 +60,13 @@ export default {
       }
     },
     submitItinerary() {
-      itineraryService.addItinerary(this.newItinerary);
-      this.showForm = false;
+      itineraryService.addItinerary(this.newItinerary).then(response => {
+        if(response.status === 201) {
+                  this.$router.push('Itinerary');
+              }
+
+      })
+      
     },
   },
   created() {

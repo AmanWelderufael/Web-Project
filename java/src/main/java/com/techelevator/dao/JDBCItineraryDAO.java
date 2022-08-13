@@ -57,12 +57,13 @@ public class JDBCItineraryDAO implements ItineraryDAO{
     }
     public List<Landmark> getLandmarksOnItinerary(int itineraryId){
         List<Landmark> landmarks = new ArrayList<>();
-        String sql = "select * \n" +
+        String sql = "\n" +
+                "select address.*, landmark.*\n" +
                 "from landmark\n" +
                 "join landmark_itinerary on landmark.landmark_id = landmark_itinerary.landmark_id\n" +
                 "join itinerary on itinerary.itinerary_id = landmark_itinerary.itinerary_id\n" +
-                "\n" +
-                "where itinerary.itinerary_id = ?\n";
+                "join address on landmark.address_id = address.address_id\n" +
+                "where itinerary.itinerary_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itineraryId);
         while(results.next()){
