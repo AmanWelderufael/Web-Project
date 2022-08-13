@@ -1,8 +1,15 @@
 <template>
   <div class="header">
-    <img class="logo" src="" alt="NYsee" />  
+    <img class="logo" src="" alt="NYsee" />
     <nav>
       <ul class="nav_links">
+        <div class="welcome" >
+          <p class="text-welcome" v-if="$store.state.token != ''">Welcome</p>
+
+          <li>{{ $store.state.user.username }}</li>
+        </div>
+
+
         <li><a href="#">About</a></li>
         <li>
           <a href="#"
@@ -44,12 +51,12 @@
             >Home</router-link
           >
         </li>
-        <li>
+        <!-- <li>
           <p v-if="$store.state.token != ''"></p>
           Welcome
         </li>
 
-        <li>{{ $store.state.user.username }}</li>
+        <li>{{ $store.state.user.username }}</li> -->
       </ul>
     </nav>
 
@@ -71,6 +78,14 @@ export default {
 </script>
 
 <style scoped>
+.welcome {
+  
+  padding: 10px;
+display: flex;
+justify-content: center;
+  
+  
+}
 img {
   cursor: pointer;
   widows: 20px;
