@@ -1,20 +1,16 @@
 <template>
   <div class="header">
+    <!-- Add the logo as an image here -->
 
-    
-    
-     <router-link class="logo"
-            v-bind:to="{ name: 'home' }"
-          
-            >LOGO</router-link
-          >
-          
-<!-- Add the logo as an image above --> 
+    <div class="header-limiter"></div>
 
+    <router-link class="logo" v-bind:to="{ name: 'home' }">LOGO</router-link>
 
     <nav>
       <ul class="nav_links">
-        <li><a href="#">About</a></li>
+        <a href="#"
+          ><router-link v-bind:to="{ name: 'About' }">About</router-link></a
+        >
         <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
@@ -30,7 +26,7 @@
             ></a
           > -->
         <!-- </li> -->
-        <li><a href="#">contact</a></li>
+        
         <li class="login">
           <router-link
             v-bind:to="{ name: 'logout' }"
@@ -55,15 +51,12 @@
             >Home</router-link
           >
         </li>
-        <div class="welcome">
-        <li>
-          <p v-if="$store.state.token != ''"> welcome </p>  
-          <h3>{{ $store.state.user.username }}</h3>
-         
-        </li>
 
-       
-        </div>
+        <li>
+          <h3 v-if="$store.state.token != ''">
+            {{ $store.state.user.username }}
+          </h3>
+        </li>
       </ul>
     </nav>
 
@@ -104,7 +97,7 @@ button {
   font-family: sans-serif;
   font-weight: 500;
   font-size: 16px;
-  color: #edf0f1;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -128,8 +121,6 @@ button {
   color: #0088a9;
 }
 .welcome {
-
   padding: 1px;
 }
-
 </style>
