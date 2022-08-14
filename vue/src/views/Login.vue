@@ -81,25 +81,27 @@ export default {
 </script>
 <style scoped>
 
+
 #login.text-center{
 margin: 0;
 padding: 0;
 box-sizing: border-box;
- background-image:url("../assets/15.jpg") ;
+ background-image:url("../assets/26.jpg") ;
  background-size: cover;
  background-position:center center;
-
  display: flex;
-
-
+ width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
-div{
+/* div{
   display: flex;
   width: 100%;
   height: 100vh;
   justify-content: center;
   align-items: center;
-}
+} */
 .form-signin{
   position:absolute;
   top:50%;
@@ -108,8 +110,8 @@ div{
   background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
   width: 380px;
   padding: 50px 30px;
-  border-radius: 10px;
-  box-shadow:7px 7px 60px #000;
+  border-radius: 40px;
+  box-shadow:20px 20px 60px rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
 
@@ -145,12 +147,15 @@ h1{
 .submit1{
 
   background: rgb(1, 14, 22);
-  color:#fff;
   text-transform: uppercase;
   font-size: 1.2em;
   opacity: .8;
   color: rgb(245, 237, 244);
   border:none;
 }
+.submit1:hover{
+   background-color: rgb(27, 76, 139);
+}
 
+  
 </style>

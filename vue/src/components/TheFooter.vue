@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row"></div>
     </div>
-    <hr />
+    <!-- <hr /> -->
 
     <div class="container">
       <div class="row">
@@ -47,12 +47,12 @@ export default {
 .site-footer
 {
   background-color:#112740;
-  padding:45px 0 20px;
+  padding:0px 0 20px;
   font-size:15px;
   line-height:24px;
   color:#737373;
 }
-.site-footer hr
+/* .site-footer hr
 {
   border-top-color:#bbb;
   opacity:0.5
@@ -60,7 +60,7 @@ export default {
 .site-footer hr.small
 {
   margin:20px 0
-}
+} */
 .site-footer h6
 {
   color:#fff;
