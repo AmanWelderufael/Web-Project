@@ -55,12 +55,15 @@
             >Home</router-link
           >
         </li>
+        <div class="welcome">
         <li>
-          <p v-if="$store.state.token != ''"></p>
-          Welcome
+          <p v-if="$store.state.token != ''"> welcome </p>  
+          <h3>{{ $store.state.user.username }}</h3>
+         
         </li>
 
-        <li>{{ $store.state.user.username }}</li>
+       
+        </div>
       </ul>
     </nav>
 
@@ -124,16 +127,9 @@ button {
 .nav_links li a:hover {
   color: #0088a9;
 }
-/* .login {
-    margin-left: 20px;
-    padding: 9px 25px;
-    background-color: rgba(0,136,169,1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-} */
-/* .login:hover {
-    background-color: rgba(0,136,169,0.8)
-} */
+.welcome {
+
+  padding: 1px;
+}
+
 </style>

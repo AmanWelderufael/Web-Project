@@ -5,23 +5,35 @@
       v-for="itinerary in itineraries"
       v-bind:key="itinerary.itinerary_id"
       v-bind:value="itinerary.itinerary_id"
-    >
-      {{ itinerary.itinerary_name }}
+    >  <h1>{{ itinerary.itinerary_name }}</h1>
+    <div> {{landmark.landmark_name}} </div>
+    
     </div>
+    
     
   </div>
 </template>
 
 <script>
+
 import itineraryService from "../services/ItineraryService";
+
+
+
+
+
+
 export default {
-  props: {
-    landmark: Object,
-  },
+  
+  // props: {
+  //   landmark: Object,
+  // },
   data() {
     return {
       itineraries: [],
-      selectedItinerary: "",
+      landmark: ""
+     
+     
     };
   },
 
@@ -29,6 +41,8 @@ export default {
     itineraryService.search().then((response) => {
       this.itineraries = response.data;
     });
+    
+    
   },
 };
 </script>

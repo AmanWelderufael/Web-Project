@@ -3,8 +3,8 @@
     <!-- <button @click="toggleShowForm" class="addItineraryButton" href="#">
       Add a new Itinerary
     </button> -->
-                                                                                                                                                                                                   
-    <form id="make-itinerary" >
+
+    <form id="make-itinerary">
       <div class="field">
         <label for="itineraryName">Name of Itinerary</label>
         <input
@@ -19,9 +19,19 @@
             >Choose a starting location</label
           >
         </div>
-        <select v-model="newItinerary.starting_landmark_id" class="custom-select" id="inputGroupSelect01">
+        <select
+          v-model="newItinerary.starting_landmark_id"
+          class="custom-select"
+          id="inputGroupSelect01"
+        >
           <option selected>Choose...</option>
-          <option  v-for="landmark in landmarks" v-bind:key="landmark.landmark_id" v-bind:value="landmark.landmark_id">{{landmark.landmark_name}}</option>
+          <option
+            v-for="landmark in landmarks"
+            v-bind:key="landmark.landmark_id"
+            v-bind:value="landmark.landmark_id"
+          >
+            {{ landmark.landmark_name }}
+          </option>
         </select>
       </div>
       <button
@@ -31,26 +41,27 @@
       >
         submit
       </button>
-
     </form>
-    <itinerary />
+
+    <itinerary> Hello </itinerary>
   </div>
 </template>
 
 <script>
-import Itinerary from '../components/Itinerary.vue';
+import Itinerary from "../components/Itinerary.vue";
 
 import itineraryService from "../services/ItineraryService";
 import LandmarkService from "../services/LandmarkService";
 export default {
-  components: { Itinerary},
+  components: { Itinerary },
+
   name: "home",
   data() {
     return {
       showForm: false,
       newItinerary: {
         itinerary_name: "",
-        starting_landmark_id: ""
+        starting_landmark_id: "",
       },
       landmarks: [],
     };
@@ -64,7 +75,7 @@ export default {
     //   }
     // },
     submitItinerary() {
-      itineraryService.addItinerary(this.newItinerary)
+      itineraryService.addItinerary(this.newItinerary);
       this.showForm = false;
     },
   },
@@ -72,22 +83,24 @@ export default {
     LandmarkService.search().then((response) => {
       this.landmarks = response.data;
     });
-    
+    LandmarkService.getByItinerary(this.newItinerary).then(response => {
+      this.landmarks = response.data;
+    })
   },
 };
 </script>
 
 <style scoped>
-.home{
+.home {
   margin: 0;
-padding: 0;
-box-sizing: border-box;
- /* background-image:url("../assets/20.jpg") ; */
- background-size: cover;
- background-position:center center;
- display: flex;
- justify-content: space-evenly;
- width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-image:url("../assets/20.jpg") ; */
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
   height: 100vh;
 }
 /* div{
@@ -96,47 +109,45 @@ box-sizing: border-box;
   justify-content: center;
   align-items: center;
 } */
-#make-itinerary{
-   position:absolute;
-  top:50%;
-  left:80%;
-  transform: translate(-50%,-50%);
-  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+#make-itinerary {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   width: 380px;
   /* padding: 50px 30px; */
   margin: 50px 30px;
   border-radius: 10px;
-  box-shadow:20px 20px 70px rgb(3, 43, 57);
+  box-shadow: 20px 20px 70px rgb(3, 43, 57);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 50vh;
   align-content: center;
   color: black;
-
 }
-.input-group-mb-3{
-display: flex;
-flex-direction: column;
-flex-shrink: 2;
+.input-group-mb-3 {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 2;
 }
-.addItineraryButton{
+.addItineraryButton {
   /* height: 10vh;
   margin-left: 60px;
   margin-top: 20px;
   transition: 2ms; */
   width: 100px;
   height: 100px;
-  background: rgb(205, 211, 214);
+  background: rgb(79, 85, 88);
   transition: width 1s;
   transition-timing-function: ease-out;
   margin-top: 20px;
   margin-left: 60px;
   border-radius: 20px;
   box-shadow: 10px 10px 30px rgb(3, 43, 57);
-   background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
-   border: none;
-  
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  border: none;
 }
 .addItineraryButton:hover {
   width: 200px;
@@ -149,16 +160,11 @@ flex-shrink: 2;
   justify-content: center;
   align-content: center;
 } */
-form{
-  
+form {
   position: absolute;
   right: 0;
   width: 100px;
   height: 120px;
-  border: 3px solid blue;
-} 
-
-
-
-
+  border: 3px solid rgb(30, 30, 68);
+}
 </style>
