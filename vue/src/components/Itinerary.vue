@@ -16,7 +16,7 @@
 
 <script>
 
-import itineraryService from "../services/ItineraryService";
+import LandmarkService from "../services/LandmarkService";
 
 
 
@@ -25,21 +25,23 @@ import itineraryService from "../services/ItineraryService";
 
 export default {
   
-  // props: {
-  //   landmark: Object,
-  // },
+  props: {
+    itinerary: Object,
+  },
   data() {
     return {
-      itineraries: [],
-      landmark: ""
+      landmark: [],
+     
      
      
     };
   },
 
-  created() {
-    itineraryService.search().then((response) => {
-      this.itineraries = response.data;
+  
+    created(){
+
+    LandmarkService.search().then((response) => {
+      this.landmark = response.data;
     });
     
     
@@ -47,7 +49,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped>
 .content-cards {
   display: flex;
   padding: 1em;

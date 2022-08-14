@@ -2,124 +2,137 @@
   <div class="modal-backdrop">
     <div class="modal">
       <header class="modal-header">
-        <slot name="header">
-          Select an itinerary
-        </slot>
-        <button
-          type="button"
-          class="btn-close"
-          @click="close"
-        >
-          x
-        </button>
+        <slot name="header"> Select an itinerary </slot>
+        <button type="button" class="btn-close" @click="close">x</button>
       </header>
 
       <section class="modal-body">
-        <button type="button"
+        
+        <button
+          type="button"
           class="btn-green"
-          @click="close(); addToItinerary(itinerary.itinerary_id); " v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id">{{itinerary.itinerary_name}}
-          </button>
-       </section>
+          @click="
+            close();
+            addToItinerary(itinerary.itinerary_id);
+          "
+          v-for="itinerary in itineraries"
+          v-bind:key="itinerary.itinerary_id"
+        >
+          {{ itinerary.itinerary_name }}
+        </button>
+        
+        
+      </section>
     </div>
   </div>
 </template>
 
 <script>
-
 import itineraryService from "../services/ItineraryService";
 
 export default {
-    name: 'Modal',
-    data(){
-      return{
-        itineraries:[]
-      }
-    },
-    props: {
+  name: "Modal",
+  data() {
+    return {
+      itineraries: [],
+    };
+  },
+  props: {
     landmark: Object,
   },
-    methods: {
-      close() {
-        this.$emit('close');
-
-      },
-      addToItinerary(id){
-        itineraryService.addLandmark(id,this.landmark)
-      }
+  methods: {
+    close() {
+      this.$emit("close");
     },
-    created() {
+    addToItinerary(id) {
+      itineraryService.addLandmark(id, this.landmark);
+    },
+  },
+  created() {
     itineraryService.search().then((response) => {
       this.itineraries = response.data;
     });
   },
-
-}
+};
 </script>
 
-<style>
+<style scoped>
 .modal-backdrop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .modal {
-    background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-  }
+.modal {
+  background: #ffffff;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  .modal-header,
-  .modal-footer {
-    padding: 15px;
-    display: flex;
-  }
+.modal-header,
+.modal-footer {
+  padding: 10px;
+  display: flex;
+  
+  
+}
 
-  .modal-header {
-    position: relative;
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: space-between;
-  }
+.modal-header {
+  position: relative;
+  border-bottom: 1px solid #eeeeee;
+  color: #4aae9b;
+  justify-content: space-between;
+  
+}
 
-  .modal-footer {
-    border-top: 1px solid #eeeeee;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
+.modal-footer {
+  border-top: 1px solid #eeeeee;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
-  .modal-body {
-    position: relative;
-    padding: 20px 10px;
-    display: flex;
-    flex-direction: column;
-  }
+.modal-body {
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
 
-  .btn-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #4AAE9B;
-    background: transparent;
-  }
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4aae9b;
+  background: transparent;
+}
 
-  .btn-green {
-    color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
-    border-radius: 2px;
-  }
+.btn-green {
+  color: white;
+  background: #4aae9b;
+  border: 1px solid #4aae9b;
+  border-radius: 2px;
+  padding: 10px;
+}
+button {
+  margin: 2px;
+}
+button:hover {
+  background: #3b5998;
+}
+
+
 </style>

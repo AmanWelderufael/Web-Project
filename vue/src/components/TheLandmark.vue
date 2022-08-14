@@ -107,8 +107,8 @@ body {
   justify-content: space-around; */
 }
 .card {
-  width: 280px;
-  height: 360px;
+  width: 100%;
+  height: 100%;
   padding: 2rem 1rem;
   background: #fff;
   position: relative;
