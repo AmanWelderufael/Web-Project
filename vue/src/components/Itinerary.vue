@@ -1,50 +1,33 @@
 <template>
   <div class="content-cards">
-    <div
-      class="card"
-      v-for="itinerary in itineraries"
-      v-bind:key="itinerary.itinerary_id"
-      v-bind:value="itinerary.itinerary_id"
-    >  <h1>{{ itinerary.itinerary_name }}</h1>
-    <div> {{landmark.landmark_name}} </div>
-    
+    <div class="card">
+      <h1>{{ itinerary.itinerary_name }}</h1>
+      <p v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
+        {{ landmark.landmark_name }}
+      </p>
     </div>
-    
-    
   </div>
 </template>
 
 <script>
-
-import LandmarkService from "../services/LandmarkService";
-
-
-
-
-
+import itineraryService from "../services/ItineraryService";
 
 export default {
-  
   props: {
     itinerary: Object,
   },
   data() {
     return {
-      landmark: [],
-     
-     
-     
+      landmarks: [],
     };
   },
 
-  
-    created(){
-
-    LandmarkService.search().then((response) => {
-      this.landmark = response.data;
-    });
-    
-    
+  created() {
+    itineraryService
+      .getByItinerary(this.itinerary.param.id)
+      .then((response) => {
+        this.landmarks = response.data;
+      });
   },
 };
 </script>
@@ -69,12 +52,10 @@ export default {
   width: 15em;
   height: 20em;
   overflow: auto;
-  
 }
 .card:hover {
-  transform:rotate(3deg);
+  transform: rotate(3deg);
   cursor: pointer;
   transition-duration: 0.5s;
 }
-
 </style>

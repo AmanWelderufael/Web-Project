@@ -52,4 +52,4 @@ public class ItineraryController {
         return itineraryDAO.getLandmarksOnItinerary(itinerary.getItinerary_id());
 
     }
-}
+   }
