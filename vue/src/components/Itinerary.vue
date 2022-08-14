@@ -2,11 +2,8 @@
   <div class="content-cards">
     <div
       class="card"
-      v-for="itinerary in itineraries"
-      v-bind:key="itinerary.itinerary_id"
-      v-bind:value="itinerary.itinerary_id"
     >  <h1>{{ itinerary.itinerary_name }}</h1>
-    <div> {{landmark.landmark_name}} </div>
+    <p v-for="landmark in landmarks" v-bind:key="landmark.landmark_id"> {{landmark.landmark_name}} </p>
     
     </div>
     
@@ -16,8 +13,7 @@
 
 <script>
 
-import itineraryService from "../services/ItineraryService";
-
+import LandmarkService from "../services/LandmarkService"
 
 
 
@@ -25,21 +21,25 @@ import itineraryService from "../services/ItineraryService";
 
 export default {
   
-  // props: {
-  //   landmark: Object,
-  // },
+  props: {
+    itinerary: Object,
+  },
   data() {
     return {
-      itineraries: [],
-      landmark: ""
+      landmarks: []
+      
      
      
     };
   },
+ 
+
 
   created() {
-    itineraryService.search().then((response) => {
-      this.itineraries = response.data;
+    
+    
+    LandmarkService.getByItinerary(this.itinerary).then((response) => {
+      this.landmarks = response.data;
     });
     
     
