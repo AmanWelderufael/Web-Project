@@ -3,6 +3,7 @@
     <img :src="getImageURL(landmark.landmark_id)" />
 
     <div class="makeRibbon">
+      
       <h3 class="button ribbon">{{ landmark.landmark_name }}</h3>
     </div>
 
@@ -13,6 +14,7 @@
           v-if="$store.state.token != '' && this.itineraries.length != 0"
           
         >
+        
           <button type="button" class="btn" @click="showModal">
             Add to Itinerary
           </button>
@@ -86,7 +88,7 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: sans-serif;
 }
 html,
 body {
@@ -96,10 +98,12 @@ body {
   justify-content: center;
   align-items: center;
   background: #222;
+  
 }
 #button-container {
   display: flex;
   justify-content: space-around;
+  
 }
 .wrapper {
   /* display: flex;
@@ -116,6 +120,9 @@ body {
   align-items: flex-end;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
   transition: 0.5s ease-in-out;
+  
+ 
+  
 }
 .card:hover {
   transform: translateY(20px);
@@ -136,6 +143,8 @@ body {
   z-index: 2;
   transition: 0.5s all;
   opacity: 0;
+ 
+  border-radius: 25px;
 }
 .card:hover:before {
   opacity: 1;
@@ -149,6 +158,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 25px;
 }
 
 .card .info {

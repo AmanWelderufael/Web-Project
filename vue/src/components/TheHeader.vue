@@ -4,6 +4,8 @@
 
     <div class="header-limiter"></div>
 
+    <!-- <img src="../assets/y.png" alt=""> -->
+
     <router-link class="logo" v-bind:to="{ name: 'home' }">LOGO</router-link>
 
     <nav>
@@ -82,6 +84,8 @@ export default {
   cursor: pointer;
   widows: 20px;
   margin-right: auto;
+ 
+
 }
 
 * {
