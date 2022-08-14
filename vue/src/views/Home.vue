@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <button @click="toggleShowForm" class="addItineraryButton" href="#">
+    <!-- <button @click="toggleShowForm" class="addItineraryButton" href="#">
       Add a new Itinerary
-    </button>
+    </button> -->
                                                                                                                                                                                                    
-    <form id="make-itinerary" v-show="showForm">
+    <form id="make-itinerary" >
       <div class="field">
         <label for="itineraryName">Name of Itinerary</label>
         <input
@@ -33,13 +33,17 @@
       </button>
 
     </form>
+    <itinerary />
   </div>
 </template>
 
 <script>
+import Itinerary from '../components/Itinerary.vue';
+
 import itineraryService from "../services/ItineraryService";
 import LandmarkService from "../services/LandmarkService";
 export default {
+  components: { Itinerary},
   name: "home",
   data() {
     return {
@@ -52,27 +56,23 @@ export default {
     };
   },
   methods: {
-    toggleShowForm() {
-      if (this.showForm) {
-        this.showForm = false;
-      } else {
-        this.showForm = true;
-      }
-    },
+    // toggleShowForm() {
+    //   if (this.showForm) {
+    //     this.showForm = false;
+    //   } else {
+    //     this.showForm = true;
+    //   }
+    // },
     submitItinerary() {
-      itineraryService.addItinerary(this.newItinerary).then(response => {
-        if(response.status === 201) {
-                  this.$router.push('Itinerary');
-              }
-
-      })
-      
+      itineraryService.addItinerary(this.newItinerary)
+      this.showForm = false;
     },
   },
   created() {
     LandmarkService.search().then((response) => {
       this.landmarks = response.data;
     });
+    
   },
 };
 </script>
@@ -99,7 +99,7 @@ box-sizing: border-box;
 #make-itinerary{
    position:absolute;
   top:50%;
-  left:50%;
+  left:80%;
   transform: translate(-50%,-50%);
   background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
   width: 380px;
@@ -149,6 +149,15 @@ flex-shrink: 2;
   justify-content: center;
   align-content: center;
 } */
+form{
+  
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 120px;
+  border: 3px solid blue;
+} 
+
 
 
 

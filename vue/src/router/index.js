@@ -9,7 +9,7 @@ import AllLandmarks from '../views/AllLandmarks'
 import LandmarkSearch from '../views/LandmarkSearch'
 import LandmarkDetail from '../views/LandmarkDetail'
 import AddingItinerary from '../views/AddingItinerary'
-import ItineraryView from '../views/ItineraryView.vue'
+
 
 
 Vue.use(Router)
@@ -78,12 +78,8 @@ const router = new Router({
       path: '/add-itinerary',
       name: 'add-itinerary',
       component: AddingItinerary
-    },
-    {
-      path: '/Itinerary',
-      name: 'Itinerary',
-      component: ItineraryView
     }
+    
   ]
 })
 
