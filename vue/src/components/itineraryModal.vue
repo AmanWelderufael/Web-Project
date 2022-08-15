@@ -2,7 +2,7 @@
   <div class="modal-backdrop">
     <div class="modal">
       <header class="modal-header">
-        <slot name="header"> Select an itinerary </slot>
+        <slot name="header"> Select an itinerary </slot> 
         <button type="button" class="btn-close" @click="close">x</button>
       </header>
 
@@ -63,7 +63,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,10 +71,18 @@ export default {
 
 .modal {
   background: #ffffff;
-  box-shadow: 2px 2px 20px 1px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,.3);
   overflow-x: auto;
   display: flex;
   flex-direction: column;
+  margin: 10px 10px 0 0;
+   width: 300px;
+   border-radius: 10px;
+     
+
+  
+
+  
 }
 
 .modal-header,
@@ -131,7 +139,7 @@ button {
   margin: 2px;
 }
 button:hover {
-  background: #3b5998;
+  background: #143050;
 }
 
 
