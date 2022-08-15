@@ -2,9 +2,10 @@
   <div class="content-cards">
     <div class="card">
       <h1>{{ itinerary.itinerary_name }}</h1>
-      <p v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
-        {{ landmark.landmark_name }}
-      </p>
+      <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
+      <p>{{ landmark.landmark_name }}</p>
+      <button @click="removeLandmark"> X </button>
+      </div>
     </div>
   </div>
 </template>

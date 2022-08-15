@@ -32,15 +32,18 @@ public class JDBCItineraryDAO implements ItineraryDAO{
         jdbcTemplate.update(sql,itineraryId, landmarkId);
     }
 
-    //This will delete itinerary
-    //Think of other ways to delete besides landmarkid
+
 
     @Override
-    public void deleteItinerary(int landmarkid){
+    public void deleteItinerary(int id){
 
-        String sqlToDelete = "DELETE FROM itinerary WHERE starting_landmark_id = ?";
+        String sqlToDelete = "Delete from landmark_itinerary\n" +
+                "where itinerary_id = ?;\n" +
+                "\n" +
+                "DELETE from Itinerary \n" +
+                "where itinerary_id = ?";
 
-        jdbcTemplate.update(sqlToDelete,landmarkid);
+        jdbcTemplate.update(sqlToDelete,id,id);
     }
 
     @Override
@@ -55,6 +58,7 @@ public class JDBCItineraryDAO implements ItineraryDAO{
         }
         return itineraries;
     }
+    @Override
     public List<Landmark> getLandmarksOnItinerary(int itineraryId){
         List<Landmark> landmarks = new ArrayList<>();
         String sql = "\n" +
@@ -72,6 +76,15 @@ public class JDBCItineraryDAO implements ItineraryDAO{
 
         }
         return landmarks;
+
+    }
+
+    @Override
+    public void removeLandmark(int itineraryId, int landmarkId){
+        String sql = "DELETE from landmark_itinerary\n" +
+                "where landmark_id = ? and itinerary_id = ?";
+        jdbcTemplate.update(sql,landmarkId,itineraryId);
+
 
     }
 
