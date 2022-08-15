@@ -53,14 +53,15 @@ export default {
 <style scoped>
 .movie_card {
   position: relative;
-  display: block;
-  width: 800px;
-  height: 350px;
-  margin: 80px auto;
+  
+ width: 100%;
+ height: 100%;
+  background-color: red;
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.4s;
-  box-shadow: 0px 0px 120px -25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 120px -25px rgba(211, 19, 19, 0.5);
+  
 }
 #map {
   width: 100%;

@@ -1,10 +1,6 @@
 <template>
-  <div id="details-page">
-    <the-map
-      v-bind:landmark="landmark"
-      class="gridItem"
-      id="map-container"
-    ></the-map>
+  <div>
+    
     <div class="movie_card" id="bright">
        
       <div class="info_section">
@@ -40,6 +36,11 @@
       
 
     </div>
+    <the-map
+      v-bind:landmark="landmark"
+      class="gridItem"
+      id="map-container"
+    ></the-map>
 
     <Modal
             v-bind:landmark="landmark"
@@ -132,11 +133,11 @@ body {
   box-shadow:  10px 10px #112740;
 }
 
-/* .movie_card:hover {
+.movie_card:hover {
   transform: scale(1.02);
   box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
   transition: all 0.4s;
-} */
+}
 .info_section {
   position: relative;
   width: 100%;
