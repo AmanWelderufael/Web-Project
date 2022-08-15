@@ -1,13 +1,8 @@
 <template>
   <div class="home">
-    <!-- <button @click="toggleShowForm" class="addItineraryButton" href="#">
-      Add a new Itinerary
-    </button> -->
-  
+
+
     <itinerary id="itinerary"  v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
-    
-    
-  
     <form id="make-itinerary">
       <div class="field">
         <label for="itineraryName">Name of Itinerary</label>
@@ -114,7 +109,7 @@ export default {
   background-size: cover;
   background-position: center center;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   width: 100%;
   height: 100vh;
 }

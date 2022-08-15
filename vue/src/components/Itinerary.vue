@@ -63,8 +63,8 @@ export default {
   padding: 1em;
   position: relative;
   color: rgb(255, 255, 255);
-  width: 15em;
-  height: 20em;
+  width: auto;
+  height: 80%;
   overflow: auto;
 }
 .card:hover {
