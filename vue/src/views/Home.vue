@@ -3,9 +3,11 @@
     <!-- <button @click="toggleShowForm" class="addItineraryButton" href="#">
       Add a new Itinerary
     </button> -->
-    <div v-if="itineraries != []">
+  
     <itinerary  v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
-    </div>
+    
+    
+  
     <form id="make-itinerary">
       <div class="field">
         <label for="itineraryName">Name of Itinerary</label>
@@ -65,7 +67,8 @@ export default {
         starting_landmark_id: "",
       },
       landmarks: [],
-      itineraries: []
+      itineraries: [],
+      landmarksOnItineraries: []
     };
   },
   methods: {
@@ -85,12 +88,13 @@ export default {
     LandmarkService.search().then((response) => {
       this.landmarks = response.data;
     });
-    LandmarkService.getByItinerary(this.newItinerary).then((response) => {
-      this.landmarks = response.data;
-    });
-    itineraryService.search().then( response => {
+  
+    itineraryService.search().then( (response) => {
        this.itineraries = response.data;
     });
+    //   LandmarkService.getByItinerary(this.itineraries[1]).then((response) => {
+    //   this.landmarks = response.data;
+    // });
   },
 };
 </script>
@@ -115,7 +119,6 @@ export default {
   align-items: center;
 } */
 #make-itinerary {
-  position: absolute;
   top: 50%;
   left: 80%;
   transform: translate(-50%, -50%);
