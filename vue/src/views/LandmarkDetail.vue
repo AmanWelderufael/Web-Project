@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="details-page">
     <the-map
       v-bind:landmark="landmark"
       class="gridItem"
@@ -96,6 +96,11 @@ export default {
   margin: 0;
   
 }
+#details-page{
+  display: flex;
+  flex-direction: row-reverse;
+
+}
 
 html,
 body {
@@ -127,11 +132,11 @@ body {
   box-shadow:  10px 10px #112740;
 }
 
-.movie_card:hover {
+/* .movie_card:hover {
   transform: scale(1.02);
   box-shadow: 0px 0px 80px -25px rgba(0, 0, 0, 0.5);
   transition: all 0.4s;
-}
+} */
 .info_section {
   position: relative;
   width: 100%;
