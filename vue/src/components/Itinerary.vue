@@ -4,13 +4,15 @@
       <h1>{{ itinerary.itinerary_name }}</h1>
       <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
       <p>{{ landmark.landmark_name }}</p>
-      <button @click="removeLandmark"> X </button>
+      <button @click="removeLandmark(landmark.landmark_id)"> X </button>
       </div>
+      <button @click="deleteItinerary()">Delete this trip</button>
     </div>
   </div>
 </template>
 
 <script>
+import ItineraryService from '../services/ItineraryService';
 
 import LandmarkService from '../services/LandmarkService';
 
@@ -31,6 +33,16 @@ export default {
         this.landmarks = response.data;
       });
   },
+  methods:{
+    removeLandmark(landmark_id){
+      ItineraryService.removeLandmark(this.itinerary.itinerary_id, landmark_id);
+       location.reload();
+    },
+    deleteItinerary(){
+      ItineraryService.deleteItinerary(this.itinerary.itinerary_id);
+       location.reload();
+    }
+  }
 };
 </script>
 
