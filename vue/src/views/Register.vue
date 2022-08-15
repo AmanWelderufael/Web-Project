@@ -33,8 +33,9 @@
         v-model="user.confirmPassword"
         required
       />
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button class="btn-btn-lg-btn-primary-btn-block" type="submit">
         Create Account</button>
+
 
       <router-link class="has-account" :to="{ name: 'login' }">Have an account?</router-link>
       
@@ -97,19 +98,19 @@ export default {
 <style scoped>
 
 #register.text-center{
-  margin: 0;
+margin: 0;
 padding: 0;
 box-sizing: border-box;
- background-image:url("../assets/18.jpg") ;
+ background-image:url("../assets/26.jpg") ;
  background-size: cover;
  background-position:center center;
  display: flex;
- display: flex;
-  width: 100%;
-  height: 80vh;
+ width: 100%;
+  height: 100vh;
   justify-content: center;
   align-items: center;
 }
+
 .form-register{
   position:absolute;
   top:50%;
@@ -118,8 +119,8 @@ box-sizing: border-box;
   background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
   width: 380px;
   padding: 50px 30px;
-  border-radius: 10px;
-  box-shadow:7px 7px 60px #000;
+  border-radius: 40px;
+  box-shadow:20px 20px 60px rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
 }
@@ -148,7 +149,23 @@ h1{
 }
 
 .has-account{
-  color:azure;
+  color: rgb(255, 255, 255);
+   font-family: Arial, Helvetica, sans-serif;
+   margin-bottom: 2em;
+}
+.btn-btn-lg-btn-primary-btn-block{
+  background: rgb(1, 14, 22);
+  color:#fff;
+  text-transform:none;
+  font-size: 1.2em;
+  opacity: .8;
+  color: rgb(245, 237, 244);
+  border:none;
+  padding-bottom: 10px;
+  
+}
+.btn-btn-lg-btn-primary-btn-block:hover {
+  background-color: rgb(27, 76, 139);
 }
 
 

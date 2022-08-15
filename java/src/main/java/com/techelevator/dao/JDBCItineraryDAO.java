@@ -57,12 +57,13 @@ public class JDBCItineraryDAO implements ItineraryDAO{
     }
     public List<Landmark> getLandmarksOnItinerary(int itineraryId){
         List<Landmark> landmarks = new ArrayList<>();
-        String sql = "select * \n" +
+        String sql = "\n" +
+                "select address.*, landmark.*\n" +
                 "from landmark\n" +
                 "join landmark_itinerary on landmark.landmark_id = landmark_itinerary.landmark_id\n" +
                 "join itinerary on itinerary.itinerary_id = landmark_itinerary.itinerary_id\n" +
-                "\n" +
-                "where itinerary.itinerary_id = ?\n";
+                "join address on landmark.address_id = address.address_id\n" +
+                "where itinerary.itinerary_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itineraryId);
         while(results.next()){
@@ -101,6 +102,14 @@ public class JDBCItineraryDAO implements ItineraryDAO{
         landmark.setZip_code(results.getInt("zip_code"));
         landmark.setLatitude(results.getFloat("latitude"));
         landmark.setLongitude(results.getFloat("longitude"));
+
+        //might need to delete
+        landmark.setItinerary_id(results.getInt("itinerary_id"));
+        landmark.setUser_id(results.getInt("user_id"));
+        landmark.setItinerary_name(results.getString("itinerary_name"));
+        landmark.setStarting_landmark_id(results.getInt("starting_landmark_id"));
         return landmark;
     }
 }
+
+

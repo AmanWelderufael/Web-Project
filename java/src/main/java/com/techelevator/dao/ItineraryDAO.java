@@ -11,4 +11,6 @@ public interface ItineraryDAO {
     public void addToItinerary(int itineraryId, int landmarkId);
     public List<Itinerary> getItinerariesForUser(int userId);
     public List<Landmark> getLandmarksOnItinerary(int itineraryId);
+
+
 }

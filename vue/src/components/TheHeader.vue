@@ -1,16 +1,20 @@
 <template>
   <div class="header">
-    <img class="logo" src="" alt="NYsee" />
+    <!-- Add the logo as an image here -->
+
+    <div class="header-limiter"></div>
+
+    <!-- <img src="../assets/NYC.png" alt=""> -->
+
+    <router-link class="logo" v-bind:to="{ name: 'home' }"
+      >NYSEE&trade;</router-link
+    >
+
     <nav>
       <ul class="nav_links">
-        <div class="welcome" >
-          <p class="text-welcome" v-if="$store.state.token != ''">Welcome</p>
-
-          <li>{{ $store.state.user.username }}</li>
-        </div>
-
-
-        <li><a href="#">About</a></li>
+        <a href="#"
+          ><router-link v-bind:to="{ name: 'About' }">About</router-link></a
+        >
         <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
@@ -26,7 +30,7 @@
             ></a
           > -->
         <!-- </li> -->
-        <li><a href="#">contact</a></li>
+
         <li class="login">
           <router-link
             v-bind:to="{ name: 'logout' }"
@@ -51,12 +55,12 @@
             >Home</router-link
           >
         </li>
-        <!-- <li>
-          <p v-if="$store.state.token != ''"></p>
-          Welcome
-        </li>
 
-        <li>{{ $store.state.user.username }}</li> -->
+        <li>
+          <h3 v-if="$store.state.token != ''">
+            {{ $store.state.user.username }}
+          </h3>
+        </li>
       </ul>
     </nav>
 
@@ -78,15 +82,7 @@ export default {
 </script>
 
 <style scoped>
-.welcome {
-  
-  padding: 10px;
-display: flex;
-justify-content: center;
-  
-  
-}
-img {
+.logo {
   cursor: pointer;
   widows: 20px;
   margin-right: auto;
@@ -105,7 +101,7 @@ button {
   font-family: sans-serif;
   font-weight: 500;
   font-size: 16px;
-  color: #edf0f1;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -128,16 +124,7 @@ button {
 .nav_links li a:hover {
   color: #0088a9;
 }
-/* .login {
-    margin-left: 20px;
-    padding: 9px 25px;
-    background-color: rgba(0,136,169,1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-} */
-/* .login:hover {
-    background-color: rgba(0,136,169,0.8)
-} */
+.welcome {
+  padding: 1px;
+}
 </style>

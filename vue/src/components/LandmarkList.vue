@@ -47,12 +47,15 @@ export default {
     display: flex;
    flex-wrap: wrap;
    justify-content: space-around;
+   
     
   }
   .card{
     margin-top: 1%;
     margin-bottom: 2%;
     flex: 0 1 32%;
+     border-radius: 50px;
+     
   }
 .ribbon{
   position: absolute;

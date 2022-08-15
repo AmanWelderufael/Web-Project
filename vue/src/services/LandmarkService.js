@@ -5,6 +5,8 @@ export default {
    },
    getByID(id){
         return axios.get('/landmark/'+id)
+   },
+   getByItinerary(itinerary){
+       return axios.get('/Itinerary/landmark', itinerary )
    }
-   
 }

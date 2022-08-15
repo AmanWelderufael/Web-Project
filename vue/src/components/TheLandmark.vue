@@ -1,51 +1,36 @@
 <template>
   <div class="card">
-   
+    <img :src="getImageURL(landmark.landmark_id)" />
 
-    
-    <img  :src="getImageURL(landmark.landmark_id)" />
-    
-    <div class = "makeRibbon">
-   <h3 class="button ribbon">{{ landmark.landmark_name }}</h3>
-  
-</div>
-  
+    <div class="landmark">
+      <h3 class="button ribbon">{{ landmark.landmark_name }}</h3>
+    </div>
+
     <div class="info">
-      
       <p>{{ landmark.landmark_description }}</p>
       <div id="button-container">
-      <div v-if="$store.state.token != '' && this.itineraries.length != 0" class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01"
-            ></label
+        <div v-if="$store.state.token != '' && this.itineraries.length != 0">
+          <button type="button" class="btn" @click="showModal">
+            Add to Itinerary
+          </button>
+
+          <Modal
+            v-bind:landmark="landmark"
+            v-show="isModalVisible"
+            @close="closeModal"
           >
+          </Modal>
         </div>
-        <select
-          v-model="selectedItinerary"
-          class="custom-select"
-          id="inputGroupSelect01"
+
+        <router-link
+          class="btn"
+          v-bind:to="{
+            name: 'Landmark-details',
+            params: { id: landmark.landmark_id },
+          }"
+          >Details</router-link
         >
-          <option selected disabled>Add to Itinerary</option>
-          <option
-            v-for="itinerary in itineraries"
-            v-bind:key="itinerary.itinerary_id"
-            v-bind:value="itinerary.itinerary_id"
-          >
-            {{ itinerary.itinerary_name }}
-          </option>
-        </select>
-        
       </div>
-      
-      <router-link
-        class="btn"
-        v-bind:to="{
-          name: 'Landmark-details',
-          params: { id: landmark.landmark_id },
-        }"
-        >Details</router-link
-      >
-    </div>
     </div>
   </div>
 
@@ -63,13 +48,18 @@
 
 
 <script>
-import itineraryService from "../services/ItineraryService";
+import Modal from "../components/itineraryModal.vue";
+import ItineraryService from "../services/ItineraryService";
 export default {
+  components: {
+    Modal,
+  },
   props: {
     landmark: Object,
   },
   data() {
     return {
+      isModalVisible: false,
       itineraries: [],
       selectedItinerary: "",
     };
@@ -80,9 +70,15 @@ export default {
       console.log("../assets/" + id + ".jpg");
       return require("../assets/" + id + ".jpg");
     },
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
   },
   created() {
-    itineraryService.search().then((response) => {
+    ItineraryService.search().then((response) => {
       this.itineraries = response.data;
     });
   },
@@ -92,7 +88,7 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: sans-serif;
 }
 html,
 body {
@@ -103,7 +99,7 @@ body {
   align-items: center;
   background: #222;
 }
-#button-container{
+#button-container {
   display: flex;
   justify-content: space-around;
 }
@@ -113,10 +109,10 @@ body {
   justify-content: space-around; */
 }
 .card {
-  width: 280px;
-  height: 360px;
+  width: 100%;
+  height: 100%;
   padding: 2rem 1rem;
-  background: #fff;
+  background: rgb(255, 255, 255);
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -142,6 +138,8 @@ body {
   z-index: 2;
   transition: 0.5s all;
   opacity: 0;
+
+  border-radius: 20px;
 }
 .card:hover:before {
   opacity: 1;
@@ -155,12 +153,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 20px;
 }
 
 .card .info {
   position: relative;
   z-index: 3;
-  color: #fff;
+  color: rgb(255, 255, 255);
   opacity: 0;
   transform: translateY(30px);
   transition: 0.5s all;
@@ -181,9 +180,9 @@ body {
 .card .info .btn {
   text-decoration: none;
   padding: 0.5rem 1rem;
-  background: #fff;
+  background: rgb(255, 255, 255);
   color: #000;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.4s ease-in-out;
@@ -192,101 +191,21 @@ body {
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 
-
-
-
-
-.makeRibbon {
-  font-family:futura;
-  color:white;
-
-   text-align:center;
-  margin:2em auto 4em;
-  max-width:600px;
-
-}
-
-
-
-
-
-h3 {
-  text-decoration:none;
-  color:rgb(10, 3, 9);
-  overflow:hidden;
-  display:block;
-  margin:0.75em;
-}
-
-.button {
-  letter-spacing:.5em;
-  text-decoration:center;
-  padding:0.75em 1.25em 0.75em 1.75em;
-  border-color:white;
-  border-width:2px;
-  border-style:solid;
-  white-space: nowrap;
-  -webkit-transition: border-color 500ms ease, color 250ms ease;;
-  -moz-transition: border-color 500ms ease, color 250ms ease;;
-  -ms-transition: border-color 500ms ease, color 250ms ease;;
-  -o-transition: border-color 500ms ease, color 250ms ease;;
-  transition: border-color 500ms ease, color 250ms ease;;
-}
-
-
-
 .ribbon {
-  border-width:2px 0;
-  position:relative;
-  display:block;
-  padding:0.75em 0 0.75em 0.5em;
+  border-top-style: solid;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+  color: white;
+  font-size: 25px;
+  text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black,
+    -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black,
+    0.05em 0.05em black;
+
+  border-width: 2px 0;
+  position: relative;
+  display: block;
+  padding: 0.75em 0 0.75em 0.5em;
+
+  font-weight: bold;
 }
-
-.ribbon:before {
-  content: "";
-  display:inline-block;
-  border-bottom-width:2px;
-  border-left-width:2px;
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -ms-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg);
-  -webkit-transform-origin: 0% 100%;
-  -moz-transform-origin: 0% 100%;
-  -ms-transform-origin: 0% 100%;
-  -o-transform-origin: 0% 100%;
-  transform-origin: 0% 100%;
-  position:absolute;
-  top:-50%;
-  bottom:50%;
-  left:1.6em;
-  right:0;
-}
-
-.ribbon:after {
-  content: "";
-  display:inline-block;
-  border-bottom-width:2px;
-  border-right-width:2px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -ms-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  -o-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  position:absolute;
-  top:-50%;
-  bottom:50%;
-  left:0;
-  right:1.6em;
-}
-
-
-
-
 </style>
