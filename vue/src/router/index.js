@@ -10,6 +10,7 @@ import LandmarkSearch from '../views/LandmarkSearch'
 import LandmarkDetail from '../views/LandmarkDetail'
 import AddingItinerary from '../views/AddingItinerary'
 import AboutPage from '../views/AboutPage'
+import LandingPage from '../views/LandingPage'
 
 
 
@@ -84,6 +85,11 @@ const router = new Router({
       path: '/About',
       name: 'About',
       component: AboutPage
+    },
+    {
+      path: '/LandingPage',
+      name: 'LandingPage',
+      component: LandingPage
     }
     
   ]
