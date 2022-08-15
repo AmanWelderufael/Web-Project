@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import itineraryService from "../services/ItineraryService";
+
+import LandmarkService from '../services/LandmarkService';
 
 export default {
   props: {
@@ -22,9 +23,9 @@ export default {
     };
   },
 
-  created() {
-    itineraryService
-      .getByItinerary(this.itinerary.param.id)
+  mounted() {
+    LandmarkService
+      .getByItinerary(this.itinerary.itinerary_id)
       .then((response) => {
         this.landmarks = response.data;
       });

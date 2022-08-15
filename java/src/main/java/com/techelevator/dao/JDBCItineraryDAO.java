@@ -104,10 +104,10 @@ public class JDBCItineraryDAO implements ItineraryDAO{
         landmark.setLongitude(results.getFloat("longitude"));
 
         //might need to delete
-        landmark.setItinerary_id(results.getInt("itinerary_id"));
-        landmark.setUser_id(results.getInt("user_id"));
-        landmark.setItinerary_name(results.getString("itinerary_name"));
-        landmark.setStarting_landmark_id(results.getInt("starting_landmark_id"));
+//        landmark.setItinerary_id(results.getInt("itinerary_id"));
+//        landmark.setUser_id(results.getInt("user_id"));
+//        landmark.setItinerary_name(results.getString("itinerary_name"));
+//        landmark.setStarting_landmark_id(results.getInt("starting_landmark_id"));
         return landmark;
     }
 }
