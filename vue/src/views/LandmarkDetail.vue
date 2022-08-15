@@ -97,6 +97,11 @@ export default {
   margin: 0;
   
 }
+#details-page{
+  display: flex;
+  flex-direction: row-reverse;
+
+}
 
 html,
 body {

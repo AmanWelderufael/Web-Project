@@ -1,13 +1,8 @@
 <template>
   <div class="home">
-    <!-- <button @click="toggleShowForm" class="addItineraryButton" href="#">
-      Add a new Itinerary
-    </button> -->
-  
-    <itinerary  v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
-    
-    
-  
+
+
+    <itinerary id="itinerary"  v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
     <form id="make-itinerary">
       <div class="field">
         <label for="itineraryName">Name of Itinerary</label>
@@ -81,6 +76,7 @@ export default {
     // },
     submitItinerary() {
       itineraryService.addItinerary(this.newItinerary);
+      location.reload();
       this.showForm = false;
     },
   },
@@ -100,6 +96,11 @@ export default {
 </script>
 
 <style scoped>
+
+#itinerary{
+  width:25%;
+  height:100%;
+}
 .home {
   margin: 0;
   padding: 0;
@@ -108,7 +109,7 @@ export default {
   background-size: cover;
   background-position: center center;
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   width: 100%;
   height: 100vh;
 }
