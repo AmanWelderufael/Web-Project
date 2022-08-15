@@ -13,17 +13,26 @@
     <i class="fa fa-star fa-2x"></i>
     <i class="star"></i>
   </div>
-    <p>I am a Front End developer who believes in making the internet a better place. I currently work at Picspotr as a Web Developer/Design intern, Vice President of LatinosinHigherEd, and a freelancer in The Greater New Haven Area. Yes I wear many hats. </p>
+    <p>This site was created by Aman Welderufael, Robert J. Siefert, Betelhem Halgos, and Justin Ranly.   </p>
 
-    <p>It is my passion to conceptualize, develop, and deploy ideas to this great environment we call the internet. I am an advocate for Higher Education advancement and when I set my goals I sink my teeth into them. </p>
+    <p>We are junior developers from Tech Elevator in Columbus, Ohio.  Over the last 14 weeks we have learned the concepts and principals of software development, with a focus 
+      on Java and learning how to develop dynamic web-based software systems using the Java programming language and platform with 700+ hours of lecture and application including:
+
+- Object-Oriented Programming: Java
+- Web Application Development: HTML, CSS, JavaScript, Spring Boot, Vue.js
+- Database Programming: JDBC, Table Design, SQL, PostgreSQL, E/R diagrams
+- Development Tools and Techniques: Agile, Unit Testing (JUnit), Integration Testing, Unix Command Line navigation, Git, IntelliJ
+    </p>
 </section>
 
 <section class="location">
-    <h1>Where I’m From</h1>
-    <p>I was born in the Bronx raised in Spanish Harlem and currently reside in Naugatuck CT.</p>
+    <h1>Our Project</h1>
+    <p>We have designed and created an interactive travel site, where a user can view landmarks from New York City, along with the ability to create custom itineraries.
+      We have incorporated google maps through API calls for each landmark giving a pin location when a user selects the landmark.
+    </p>
 </section>
 
-<section class="questions">
+<!-- <section class="questions">
     <h1>More About Me</h1>
       <h2>What is important to you?</h2>
        <p>Aside from my family education is extremely important to me and has always been a huge component of my growth.</p>
@@ -33,7 +42,7 @@
        <p>I'd love to take my new freelance career and turn it into a fullt-time gig.</p>
       <h2>What music have you been listening to lately?</h2>
        <p>I've been listening to the Focus playlist on Spotify.</p>
-</section>
+</section> -->
 
 
 

@@ -6,7 +6,7 @@
 
     <!-- <img src="../assets/NYC.png" alt=""> -->
 
-    <router-link class="logo" v-bind:to="{ name: 'home' }"
+    <router-link class="logo" v-bind:to="{ name: 'LandingPage' }"
       >NYSEE&trade;</router-link
     >
 
@@ -45,7 +45,7 @@
         </li>
         <li>
           <router-link
-            v-bind:to="{ name: 'home' }"
+            v-bind:to="{ name: 'LandingPage' }"
             v-if="$store.state.token == ''"
             >Home</router-link
           >
