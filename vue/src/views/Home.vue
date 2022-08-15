@@ -16,6 +16,7 @@
           name="itineraryName"
           v-model="newItinerary.itinerary_name"
         />
+        
       </div>
       <div class="input-group-mb-3">
         <div class="input-group-prepend">
