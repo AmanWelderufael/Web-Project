@@ -4,9 +4,11 @@
 
     <div class="header-limiter"></div>
 
-    <!-- <img src="../assets/y.png" alt=""> -->
+    <!-- <img src="../assets/NYC.png" alt=""> -->
 
-    <router-link class="logo" v-bind:to="{ name: 'home' }">LOGO</router-link>
+    <router-link class="logo" v-bind:to="{ name: 'home' }"
+      >NYSEE&trade;</router-link
+    >
 
     <nav>
       <ul class="nav_links">
@@ -28,7 +30,7 @@
             ></a
           > -->
         <!-- </li> -->
-        
+
         <li class="login">
           <router-link
             v-bind:to="{ name: 'logout' }"
@@ -84,8 +86,6 @@ export default {
   cursor: pointer;
   widows: 20px;
   margin-right: auto;
- 
-
 }
 
 * {
