@@ -6,7 +6,13 @@
       <p>{{ landmark.landmark_name }}</p>
       <button @click="removeLandmark"> X </button>
       </div>
+
+      
     </div>
+
+
+ 
+
   </div>
 </template>
 
@@ -60,4 +66,5 @@ export default {
   cursor: pointer;
   transition-duration: 0.5s;
 }
+
 </style>

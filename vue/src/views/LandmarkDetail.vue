@@ -1,10 +1,6 @@
 <template>
   <div>
-    <the-map
-      v-bind:landmark="landmark"
-      class="gridItem"
-      id="map-container"
-    ></the-map>
+    
     <div class="movie_card" id="bright">
        
       <div class="info_section">
@@ -40,6 +36,11 @@
       
 
     </div>
+    <the-map
+      v-bind:landmark="landmark"
+      class="gridItem"
+      id="map-container"
+    ></the-map>
 
     <Modal
             v-bind:landmark="landmark"
