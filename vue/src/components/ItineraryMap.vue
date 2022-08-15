@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style scoped>
-/* .movie_card {
+.movie_card {
   position: relative;
   
  width: 100%;
@@ -59,9 +59,10 @@ export default {
   border-radius: 10px;
   transition: all 0.4s;
   box-shadow: 0px 0px 120px -25px rgba(211, 19, 19, 0.5);
+  
 }
 #map {
   width: 100%;
   height: 100%;
-} */
+}
 </style>
