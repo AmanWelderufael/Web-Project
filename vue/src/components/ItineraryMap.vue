@@ -1,6 +1,6 @@
 <template>
   <div v-if="coordinates.length > 0" class="movie_card" id="bright">
-    <GmapMap  id="map" :center="coordinates[0]" :zoom="16" map-type-id="terrain">
+    <GmapMap  id="map" :center="coordinates[0]" :zoom="11" map-type-id="terrain">
       <GmapMarker
         v-for="coordinate in coordinates"
         v-bind:key="coordinate"
@@ -53,10 +53,11 @@ export default {
 <style scoped>
 .movie_card {
   position: relative;
-  
+ 
  width: 100%;
  height: 100%;
-  background-color: red;
+  height: 350px;
+  background-color: rgb(201, 174, 174);
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.4s;
@@ -66,5 +67,6 @@ export default {
 #map {
   width: 100%;
   height: 100%;
+  
 }
 </style>

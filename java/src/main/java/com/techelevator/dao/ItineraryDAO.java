@@ -6,7 +6,7 @@ import com.techelevator.model.Landmark;
 import java.util.List;
 
 public interface ItineraryDAO {
-    public void createItinerary(int userId, Itinerary itinerary);
+    public int createItinerary(int userId, Itinerary itinerary);
     public void deleteItinerary(int landmarkId); //What else can we use to delete Itinerary?
     public void addToItinerary(int itineraryId, int landmarkId);
     public List<Itinerary> getItinerariesForUser(int userId);
