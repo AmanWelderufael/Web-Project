@@ -142,7 +142,7 @@ export default {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   color: black;
  
   box-shadow: 20px 20px 70px rgb(3, 43, 57);
