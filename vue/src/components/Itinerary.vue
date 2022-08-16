@@ -6,8 +6,8 @@
 
     <h2>{{ itinerary.itinerary_name }}</h2>
     <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
-      <p>{{ landmark.landmark_name }}</p>
-      <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">X</button>
+      <p>{{ landmark.landmark_name }}  <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">X</button></p>
+      
     </div>
     
 <!-- <ul>
@@ -65,32 +65,50 @@ export default {
 .card {
   background-color: rgba(73, 41, 41, 0.7);
   border-radius: 18px;
-  box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+
   padding: 1em;
 
   width: 100%;
   position: relative;
 }
-li{
-   display: block;
-      padding: 0;
-      border: 1px solid #ddd;
-      margin-bottom: 5px;
-      background-color: #fff;
-}
-.delete{
+
+.deletebtn{
   
-  background: none;
-  border: 0px;
-  color: #888;
-  font-size: 15px;
-  width: 60px;
-  margin: 0px 0 0;
-  font-family: Lato, sans-serif;
-  cursor: pointer;
-  float: right;
+ 
+  color: #fff;
+background-color: #112740;
+  transition: all 150ms ease-in-out;
+  position:absolute;
+     top:0;
+     right:0;
+     margin: 5px;
+     border-radius: 10%;
+     
 
 }
+.deletebtn:hover {
+  background-color: #3498db;
+   
+}
+
+.xbtn{
+  float: right;
+  
+  color: white;
+ 
+  background-color: #e74c3c;
+  
+  
+   height: 25px;
+  width: 25px;
+ 
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+
+}
+
+
 
 
 /* .card:hover {
