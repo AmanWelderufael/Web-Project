@@ -5,6 +5,9 @@
     </button>
 
     <h2>{{ itinerary.itinerary_name }}</h2>
+    <div class="mapcard">
+      <itinerary-map v-bind:itinerary="this.itinerary" />
+    </div>
     <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
       <p>{{ landmark.landmark_name }}  <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">X</button></p>
       
@@ -18,9 +21,7 @@
       </ul> -->
     
 
-    <div class="mapcard">
-      <itinerary-map v-bind:itinerary="this.itinerary" />
-    </div>
+    
   </div>
 </template>
 
