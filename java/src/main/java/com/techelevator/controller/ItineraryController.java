@@ -25,7 +25,8 @@ public class ItineraryController {
     @RequestMapping(path="/Itinerary", method= RequestMethod.POST)
     public void createItinerary (@Valid @RequestBody Itinerary itinerary, Principal principal){
         int userID = userDao.findIdByUsername(principal.getName());
-        itineraryDAO.createItinerary(userID, itinerary);
+        int itinerary_id = itineraryDAO.createItinerary(userID, itinerary);
+        itineraryDAO.addToItinerary(itinerary_id, itinerary.getStarting_landmark_id());
     }
 
     @RequestMapping(path="/Itinerary/{id}", method= RequestMethod.POST )
