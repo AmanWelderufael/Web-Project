@@ -1,15 +1,16 @@
 <template>
   
     <div class="card">
-      <h1>{{ itinerary.itinerary_name }}</h1>
+       <button @click="deleteItinerary()">Delete this trip</button>
+      <h2>{{ itinerary.itinerary_name }}</h2>
       
       <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
-        <p>{{ landmark.landmark_name }}</p>
+        <h3>{{ landmark.landmark_name }}</h3>
         <button @click="removeLandmark(landmark.landmark_id)">X</button>
       </div>
       
 
-      <button @click="deleteItinerary()">Delete this trip</button>
+     
       <div class="mapcard">
         <itinerary-map v-bind:itinerary="this.itinerary" />
       </div>
@@ -62,8 +63,17 @@ export default {
   box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
   padding: 1em;
 
-  
+  width: 100%;
   position: relative;
+  
+}
+button {
+  float: right;
+ 
+  
+}
+h3{
+  float: left;
   
 }
 
