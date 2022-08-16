@@ -79,6 +79,7 @@ export default {
     submitItinerary() {
       itineraryService.addItinerary(this.newItinerary);
       this.showForm = false;
+      location.reload();
     },
   },
   created() {
