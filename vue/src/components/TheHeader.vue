@@ -25,9 +25,9 @@
 
     <nav>
       <ul class="nav_links">
-        <a href="#"
+       <li><a href="#"
           ><router-link v-bind:to="{ name: 'About' }">About</router-link></a
-        >
+        ></li> 
         <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
@@ -36,13 +36,7 @@
           >
         </li>
 
-        <!-- <li>
-          <a href="#"
-            ><router-link v-bind:to="{ name: 'Landmark-search' }"
-              >Search</router-link
-            ></a
-          > -->
-        <!-- </li> -->
+        
 
         <li class="login">
           <router-link
@@ -70,7 +64,7 @@
         </li>
 
         <li>
-          <h3 v-if="$store.state.token != ''">
+          <h3 class="welcome" v-if="$store.state.token != ''"> <p>Welcome</p>
             {{ $store.state.user.username }}
           </h3>
         </li>
@@ -145,8 +139,8 @@ button {
 .nav_links li a:hover {
   color: #0088a9;
 }
-.welcome {
-  padding: 1px;
+.welcome:hover {
+  color: #0088a9;
 }
 
 
