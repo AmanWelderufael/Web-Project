@@ -110,7 +110,7 @@ export default {
   display: flex;
   
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 /* div{
   display: flex;
@@ -121,6 +121,8 @@ export default {
 .flex-item{
   width: 25%;
   margin: 1%;
+   height: 80vh;
+   box-shadow: 20px 20px 70px rgb(3, 43, 57);
 }
 #make-itinerary {
 /*  
@@ -142,7 +144,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   color: black;
-  height: 80vh;
+ 
   box-shadow: 20px 20px 70px rgb(3, 43, 57);
   border-radius: 10px;
 }
