@@ -3,10 +3,11 @@
     <!-- <button @click="toggleShowForm" class="addItineraryButton" href="#">
       Add a new Itinerary
     </button> -->
-    <div v-if="itineraries != []">
-    <itinerary  v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
-    </div>
-    <form id="make-itinerary">
+    <!-- <div v-if="itineraries != []"> -->
+    <itinerary class="flex-item" v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
+    <!-- </div> -->
+    <form class ="flex-item" id="make-itinerary">
+      <h1> Plan a new trip! </h1>
       <div class="field">
         <label for="itineraryName">Name of Itinerary</label>
         <input
@@ -98,10 +99,7 @@ export default {
 </script>
 
 <style scoped>
-#itinerary {
-  width: 25%;
- 
-}
+
 .home {
   margin: 0;
   padding: 0;
@@ -110,7 +108,7 @@ export default {
   background-size: cover;
   background-position: center center;
   display: flex;
-  justify-content: space-evenly;
+  
   width: 100%;
   height: 100vh;
 }
@@ -120,23 +118,33 @@ export default {
   justify-content: center;
   align-items: center;
 } */
+.flex-item{
+  width: 25%;
+  margin: 1%;
+}
 #make-itinerary {
-  position: absolute;
-  top: 50%;
-  left: 80%;
+/*  
   transform: translate(-50%, -50%);
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-  width: 380px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); */
+
   /* padding: 50px 30px; */
-  margin: 50px 30px;
-  border-radius: 10px;
+  
+  /* border-radius: 10px;
   box-shadow: 20px 20px 70px rgb(3, 43, 57);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 50vh;
+  
   align-content: center;
+  color: black; */
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   color: black;
+  height: 80vh;
+  box-shadow: 20px 20px 70px rgb(3, 43, 57);
+  border-radius: 10px;
 }
 .input-group-mb-3 {
   display: flex;
@@ -171,11 +179,5 @@ export default {
   justify-content: center;
   align-content: center;
 } */
-form {
-  position: absolute;
-  right: 0;
-  width: 100px;
-  height: 120px;
-  border: 3px solid rgb(30, 30, 68);
-}
+
 </style>
