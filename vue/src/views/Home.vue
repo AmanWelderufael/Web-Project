@@ -1,8 +1,13 @@
 <template>
   <div class="home">
-
-
-    <itinerary id="itinerary"  v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
+    <itinerary
+      id="itinerary"
+      v-bind:itinerary="itinerary"
+      v-for="itinerary in itineraries"
+      v-bind:key="itinerary.itinerary_id"
+    ></itinerary
+    >
+    
     <form id="make-itinerary">
       <div class="field">
         <label for="itineraryName">Name of Itinerary</label>
@@ -11,7 +16,6 @@
           name="itineraryName"
           v-model="newItinerary.itinerary_name"
         />
-        
       </div>
       <div class="input-group-mb-3">
         <div class="input-group-prepend">
@@ -63,7 +67,7 @@ export default {
       },
       landmarks: [],
       itineraries: [],
-      landmarksOnItineraries: []
+      landmarksOnItineraries: [],
     };
   },
   methods: {
@@ -84,9 +88,9 @@ export default {
     LandmarkService.search().then((response) => {
       this.landmarks = response.data;
     });
-  
-    itineraryService.search().then( (response) => {
-       this.itineraries = response.data;
+
+    itineraryService.search().then((response) => {
+      this.itineraries = response.data;
     });
     //   LandmarkService.getByItinerary(this.itineraries[1]).then((response) => {
     //   this.landmarks = response.data;
@@ -96,10 +100,9 @@ export default {
 </script>
 
 <style scoped>
-
-#itinerary{
-  width:25%;
-  height:100%;
+#itinerary {
+  width: 25%;
+ 
 }
 .home {
   margin: 0;

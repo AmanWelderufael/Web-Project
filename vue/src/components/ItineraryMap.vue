@@ -50,11 +50,11 @@ export default {
 
 <style scoped>
 .movie_card {
-  position: relative;
   
- width: 100%;
- height: 100%;
-  background-color: red;
+ 
+ 
+  height: 350px;
+  background-color: rgb(201, 174, 174);
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.4s;
@@ -63,6 +63,6 @@ export default {
 }
 #map {
   width: 100%;
-  height: 100%;
+  
 }
 </style>

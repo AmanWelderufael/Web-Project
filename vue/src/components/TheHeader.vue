@@ -10,6 +10,19 @@
       >NYSEE&trade;</router-link
     >
 
+
+
+<!-- add this inside the div below showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    }, -->
+
+
+
+
+
     <nav>
       <ul class="nav_links">
         <a href="#"
@@ -76,8 +89,16 @@
 export default {
   name: "the-header",
   data() {
-    return {};
+    return {
+      isModalVisible: false
+    };
   },
+  showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
 };
 </script>
 
@@ -127,4 +148,8 @@ button {
 .welcome {
   padding: 1px;
 }
+
+
+
+
 </style>
