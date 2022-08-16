@@ -1,38 +1,57 @@
 <template>
   <div>
-      <body>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
-  <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light|Raleway' rel='stylesheet' type='text/css'>
-    
-  
+    <body>
+      <link
+        rel="stylesheet"
+        href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Raleway"
+        rel="stylesheet"
+        type="text/css"
+      />
 
+      <section class="introduction">
+        <div class="starcontainer">
+          <h2>About me</h2>
+          <i class="fa fa-star fa-2x"></i>
+          <i class="star"></i>
+        </div>
+        <p>
+          This site was created by Aman Welderufael, Robert J. Siefert, Betelhem
+          Halgos, and Justin Ranly.
+        </p>
 
-<section class="introduction">
-  <div class="starcontainer">
-    <h2>About me</h2>
-    <i class="fa fa-star fa-2x"></i>
-    <i class="star"></i>
-  </div>
-    <p>This site was created by Aman Welderufael, Robert J. Siefert, Betelhem Halgos, and Justin Ranly.   </p>
+        <p>
+          We are junior developers from Tech Elevator in Columbus, Ohio. Over
+          the last 14 weeks we have learned the concepts and principals of
+          software development, with a focus on Java and learning how to develop
+          dynamic web-based software systems using the Java programming language
+          and platform with 700+ hours of lecture and application including:
+        </p>
+      
+        
+        <p>
+          Object-Oriented Programming: Java - Web Application Development: HTML,
+          CSS, JavaScript, Spring Boot, Vue.js - Database Programming: JDBC,
+          Table Design, SQL, PostgreSQL, E/R diagrams - Development Tools and
+          Techniques: Agile, Unit Testing (JUnit), Integration Testing, Unix
+          Command Line navigation, Git, IntelliJ
+        </p>
+      </section>
 
-    <p>We are junior developers from Tech Elevator in Columbus, Ohio.  Over the last 14 weeks we have learned the concepts and principals of software development, with a focus 
-      on Java and learning how to develop dynamic web-based software systems using the Java programming language and platform with 700+ hours of lecture and application including:
+      <section class="location">
+        <h1>Our Project</h1>
+        <p>
+          We have designed and created an interactive travel site, where a user
+          can view landmarks from New York City, along with the ability to
+          create custom itineraries. We have incorporated google maps through
+          API calls for each landmark giving a pin location when a user selects
+          the landmark.
+        </p>
+      </section>
 
-- Object-Oriented Programming: Java
-- Web Application Development: HTML, CSS, JavaScript, Spring Boot, Vue.js
-- Database Programming: JDBC, Table Design, SQL, PostgreSQL, E/R diagrams
-- Development Tools and Techniques: Agile, Unit Testing (JUnit), Integration Testing, Unix Command Line navigation, Git, IntelliJ
-    </p>
-</section>
-
-<section class="location">
-    <h1>Our Project</h1>
-    <p>We have designed and created an interactive travel site, where a user can view landmarks from New York City, along with the ability to create custom itineraries.
-      We have incorporated google maps through API calls for each landmark giving a pin location when a user selects the landmark.
-    </p>
-</section>
-
-<!-- <section class="questions">
+      <!-- <section class="questions">
     <h1>More About Me</h1>
       <h2>What is important to you?</h2>
        <p>Aside from my family education is extremely important to me and has always been a huge component of my growth.</p>
@@ -43,13 +62,8 @@
       <h2>What music have you been listening to lately?</h2>
        <p>I've been listening to the Focus playlist on Spotify.</p>
 </section> -->
-
-
-
-</body>
-
+    </body>
   </div>
- 
 </template>
 
 <script>
@@ -57,14 +71,14 @@ export default {};
 </script>
 
 <style scoped>
-
 body {
   color: #222222;
   font-size: 1em;
-  font-family: 'Open Sans', "Helvetica Neue", sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #27901d3d;
 }
 
-.introduction > p, 
+.introduction > p,
 .location > p,
 .content-footer > p {
   font-weight: 300;
@@ -85,11 +99,11 @@ a {
   font-weight: bold;
   text-decoration: none;
   /*color: #a1a1a1;*/
-  color: #F1F1F1;
+  color: #f1f1f1;
 }
 
 a:visited {
-  color: #F1F1F1;
+  color: #f1f1f1;
 }
 
 /* -------------------------
@@ -99,6 +113,7 @@ a:visited {
 .starcontainer h2 {
   font-size: 2.8em;
   margin-bottom: 0.2em;
+  /* background-color:#27901d3d; */
 }
 
 .starcontainerportfolio > h2 {
@@ -115,13 +130,14 @@ hr {
   border: 2px solid #a1a1a1;
   width: 15.7em;
   margin-top: -1em;
-  margin-bottom: 2em; 
+  margin-bottom: 2em;
   background-color: white;
 }
 
-hr, .fa-star {
-  background-color: #fff;
-  padding: 0 .25em
+hr,
+.fa-star {
+  /* background-color:#27901d3d; */
+  padding: 0 0.25em;
 }
 
 .starcontainer .fa {
@@ -137,7 +153,7 @@ hr, .fa-star {
       Layout Declarations
    -------------------------*/
 
-.masthead-heading, 
+.masthead-heading,
 .masthead-intro,
 .content-footer,
 .starcontainer,
@@ -164,13 +180,13 @@ hr, .fa-star {
 
 .masthead-intro {
   margin-bottom: 0.1em;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: "Shadows Into Light", cursive;
   font-size: 2em;
 }
 
 .masthead-heading {
   margin-top: -0.2em;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: "Shadows Into Light", cursive;
   font-weight: bold;
   font-size: 6em;
   letter-spacing: -0.02em;
@@ -178,8 +194,8 @@ hr, .fa-star {
 }
 
 .content-footer,
-.introduction, 
-.location, 
+.introduction,
+.location,
 .questions {
   max-width: 38em;
   margin-left: auto;
@@ -196,27 +212,26 @@ hr, .fa-star {
    -------------------------*/
 
 li {
-    list-style: none;
-   }
+  list-style: none;
+}
 
 #container {
   background-color: grey;
   position: relative;
   width: 100%;
   overflow: hidden;
-    
 }
 .box {
-  float:left;
-  width:31%;
-  margin:1% 1% 93px 1%;
+  float: left;
+  width: 31%;
+  margin: 1% 1% 93px 1%;
 }
 
 .box img {
   width: 100%;
   display: block;
   border-style: solid;
-  border-width:1.5px;
+  border-width: 1.5px;
 }
 
 button {
@@ -255,7 +270,7 @@ section > h1 {
 
 .social > li {
   display: inline-block;
-  padding-right: 1em; 
+  padding-right: 1em;
 }
 
 .content-footer > p {
@@ -277,28 +292,27 @@ section > h1 {
    -------------------------*/
 
 @media only screen and (max-width: 500px) {
-    .img-responsive {
-      /*margin-top: -1em;*/
-    }
-    .box:nth-child(1n+2) {
-      border-top: 3px solid #a1a1a1;
-      padding-top: 3em;
-    }
-    .box {
-     display: block;
-     width: 75%;
-     padding-left: 2em;
-     padding-top: 0;
-   }
-   .content-footer {
+  .img-responsive {
+    /*margin-top: -1em;*/
+  }
+  .box:nth-child(1n + 2) {
+    border-top: 3px solid #a1a1a1;
+    padding-top: 3em;
+  }
+  .box {
+    display: block;
+    width: 75%;
+    padding-left: 2em;
+    padding-top: 0;
+  }
+  .content-footer {
     font-size: 0.8em;
   }
   .masthead {
-    padding: 3em 0; 
+    padding: 3em 0;
   }
   .masthead-heading {
     font-size: 3em;
   }
 }
-
 </style>

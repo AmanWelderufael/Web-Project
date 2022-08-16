@@ -7,9 +7,14 @@
         <button @click="removeLandmark(landmark.landmark_id)">X</button>
       </div>
       <button @click="deleteItinerary()">Delete this trip</button>
-    </div>
+      <div class="mapcard">
+        <itinerary-map v-bind:itinerary="this.itinerary" />
+      </div>
+
+    </div >
+
     
-      <itinerary-map v-bind:itinerary="this.itinerary" />
+      
     
   </div>
 </template>
@@ -52,15 +57,7 @@ export default {
 </script>
 
 <style scoped>
-.content-cards {
-  display: flex;
-  padding: 1em;
-  gap: 1em;
-  height: 100%;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+
 
 .card {
   background-color: rgba(73, 41, 41, 0.7);
@@ -72,6 +69,7 @@ export default {
   position: relative;
   color: rgb(255, 255, 255);
   height: 50%;
+  margin: 1rem;
 
   overflow: auto;
 }
@@ -79,16 +77,17 @@ export default {
   background-color: rgba(197, 20, 20, 0.7);
   border-radius: 18px;
   box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
-  position: relative;
+  position: absolute;
   color: rgb(255, 255, 255);
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: 40%;
+  margin-left: auto;
 
   overflow: auto;
 }
-/* .card:hover {
+.card:hover {
   transform: rotate(3deg);
   cursor: pointer;
   transition-duration: 0.5s;
-} */
+}
 </style>
