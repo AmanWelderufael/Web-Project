@@ -59,13 +59,10 @@ export default {
   border-radius: 18px;
   box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
   padding: 1em;
-  width: 100%;
-  height: 100%;
+
+  
   position: relative;
-  color: rgb(255, 255, 255);
-  height: 50%;
-  margin: 20px;
-  width: 20px;
+  
 }
 
 /* .card:hover {

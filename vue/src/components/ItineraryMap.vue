@@ -1,12 +1,9 @@
 <template>
-  <div class="movie_card" id="bright">
-    <GmapMap
-      id="map"
-      :center="coordinates[1]"
-      :zoom="16"
-      map-type-id="terrain"
-    >
-      <GmapMarker v-for="coordinate in coordinates" v-bind:key="coordinate"
+  <div v-if="coordinates.length > 0" class="movie_card" id="bright">
+    <GmapMap  id="map" :center="coordinates[0]" :zoom="11" map-type-id="terrain">
+      <GmapMarker
+        v-for="coordinate in coordinates"
+        v-bind:key="coordinate"
         :position="coordinate"
         :clickable="true"
         :draggable="false"
@@ -34,16 +31,21 @@ export default {
       },
     };
   },
-  created() {
+  mounted() {
     LandmarkService.getByItinerary(this.itinerary.itinerary_id).then(
       (response) => {
         this.landmarks = response.data;
+
+        for (let i = 0; i < this.landmarks.length; i++) {
+          let coordinate = {
+            lat: this.landmarks[i].latitude,
+            lng: this.landmarks[i].longitude,
+          };
+          console.log(coordinate);
+          this.coordinates.push(coordinate);
+        }
       }
     );
-    for (let i = 0; i < this.landmarks.length; i++) {
-      this.coordinates[i].lat = this.landmarks[i].latitude;
-      this.coordinates[i].lng = this.landmarks[i].longitude;
-    }
   },
 };
 </script>

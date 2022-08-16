@@ -101,7 +101,7 @@ export default {
 margin: 0;
 padding: 0;
 box-sizing: border-box;
- background-image:url("../assets/26.jpg") ;
+ background-image:url("../assets/25.jpg") ;
  background-size: cover;
  background-position:center center;
  display: flex;
