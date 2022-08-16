@@ -122,7 +122,7 @@ export default {
   width: 25%;
   margin: 1%;
    height: 80vh;
-   box-shadow: 20px 20px 70px rgb(3, 43, 57);
+  
 }
 #make-itinerary {
 /*  
@@ -145,7 +145,7 @@ export default {
   /* justify-content: space-around; */
   color: black;
  
-  box-shadow: 20px 20px 70px rgb(3, 43, 57);
+  
   border-radius: 10px;
 }
 .input-group-mb-3 {
