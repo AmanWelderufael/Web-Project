@@ -75,6 +75,7 @@ export default {
     },
     closeModal() {
       this.isModalVisible = false;
+      
     },
   },
   created() {
