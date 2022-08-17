@@ -201,7 +201,10 @@ export default {
 button {
   margin: 2px;
 }
-button:hover {
+.btn-green:hover {
   background: #143050;
+}
+.btn-red:hover {
+  background: #ff0000;
 }
 </style>
