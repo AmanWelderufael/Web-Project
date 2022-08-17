@@ -1,13 +1,18 @@
  <template>
-  <div id="land">
+  
     <div class="container">
-      <h1 class="name">New York City Tour</h1>
+      <div class="another-container">
+      <h1 class="name">Start Your New York City Travels Here</h1>
+      <div>
       <p class="par">Travel through a city that never sleeps</p>
-    </div>
-    <router-link v-bind:to="{
+      </div>
+      <router-link v-bind:to="{
             name: 'home'
-          }" class="btn">Get Started</router-link>
-  </div>
+          }" class="btn">Plan your trip today!</router-link>
+
+    </div>
+    </div>
+  
 </template>
  
  <script>
@@ -15,7 +20,7 @@ export default {};
 </script>
  
  <style scoped>
-#land {
+/* #land {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -27,14 +32,39 @@ export default {};
   height: 100vh;
   justify-content: flex-start;
   align-items: center;
-}
+} */
 .container{
-  margin-left: 10em;
+
+  margin: auto;
+   width: 100%;
+  
+  padding: 10px;
+ box-sizing: border-box;
+  background-image: url("../assets/26.jpg");
+background-size: cover;
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-content: center;
+justify-content: center;
+ /* margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("../assets/26.jpg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: flex-start;
+  align-items: center; */
+
 }
 
 .name {
-  font-size: 20px;
+  font-size: 400%;
   text-align: center;
+  
 }
 .par {
   text-align: center;
@@ -50,9 +80,10 @@ export default {};
   background-color: rgb(23, 36, 59);
 } */
 .btn {
-  margin-left: 15%;
+  margin-right: 20;
+  margin-top: 25rem;
 
-  background: #3498db;
+  background: #18034b;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
   background-image: -moz-linear-gradient(top, #3498db, #2980b9);
   background-image: -ms-linear-gradient(top, #3498db, #2980b9);
@@ -63,13 +94,13 @@ export default {};
   border-radius: 28px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
 
 .btn:hover {
-  background: #3cb0fd;
+  background: #022e6e;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
   background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
   background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);

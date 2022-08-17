@@ -6,24 +6,19 @@
     <button class="deletebtn"  @click="deleteItinerary()" @drop="onDrop($event, landmark_id)" @dragover.prevent @dragenter.prevent>
       Delete this trip
     </button>
-
+ <div class="mapcard">
+      <itinerary-map v-bind:itinerary="this.itinerary" />
+    </div>
     <h2>{{ itinerary.itinerary_name }}</h2>
     <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id" draggable="true" @dragstart="startDrag($event,item)">
       <p>{{ landmark.landmark_name }}  <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">X</button></p>
       
     </div>
     
-<!-- <ul>
-<li v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
-  <p>{{ landmark.landmark_name }}</p>
-  <button class="delete" @click="removeLandmark(landmark.landmark_id)">X</button>
-</li>
-      </ul> -->
+
     
 
-    <div class="mapcard">
-      <itinerary-map v-bind:itinerary="this.itinerary" />
-    </div>
+   
     
   </div>
 </template>
@@ -73,9 +68,7 @@ export default {
  ItineraryService.deleteItinerary(this.itinerary.itinerary_id);
       location.reload();
 
-          // const itemID = evt.dataTransfer.getData('itemID')
-          // const item = this.items.find((item) => item.id == itemID)
-          // item.list = list
+         
       }
    
     },
@@ -100,8 +93,7 @@ export default {
 }
 
 .deletebtn{
-  
- 
+
   color: #fff;
 background-color: #112740;
   transition: all 150ms ease-in-out;
@@ -134,14 +126,10 @@ background-color: #112740;
   cursor: pointer;
 
 }
+.mapcard{
+  margin-top: 10%;
+}
 
 
-
-
-/* .card:hover {
-  transform: rotate(3deg);
-  cursor: pointer;
-  transition-duration: 0.5s;
-} */
 
 </style>
