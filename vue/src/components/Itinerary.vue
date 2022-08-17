@@ -1,25 +1,45 @@
 <template>
   <div class="card">
+    <!-- add (event,landmark-id) -->
+    <!-- <button class="deletebtn" @click="deleteItinerary()"   @drop="onDrop($event, landmark_id)" @dragover.prevent @dragenter.prevent> -->
+      <div class="icon-trash" style="float: left" @drop="onDrop(evt)"
+      @dragover.prevent
+      @dragenter.prevent >
+    <div class="trash-lid" style="background-color: #2CC3B5"></div>
+    <div class="trash-container" style="background-color: #2CC3B5"></div>
+    <div class="trash-line-1"></div>
+    <div class="trash-line-2"></div>
+    <div class="trash-line-3"></div>
+  </div>
 
-<!-- add (event,landmark-id) -->
-<!-- <button class="deletebtn" @click="deleteItinerary()"   @drop="onDrop($event, landmark_id)" @dragover.prevent @dragenter.prevent> -->
-    <button class="deletebtn"  @click="deleteItinerary()" @drop="onDrop($event, landmark_id)" @dragover.prevent @dragenter.prevent>
+    <button
+      class="deletebtn"
+      @click="deleteItinerary()"
+    >
       Delete this trip
     </button>
- <div class="mapcard">
+ 
+    <div class="mapcard">
       <itinerary-map v-bind:itinerary="this.itinerary" />
-    </div>
+    </div >
     <h2>{{ itinerary.itinerary_name }}</h2>
-    <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id" draggable="true" @dragstart="startDrag($event,item)">
-      <p>{{ landmark.landmark_name }}  <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">X</button></p>
-      
-    </div>
-    
-
-    
-
    
     
+    <div
+      v-for="landmark in landmarks"
+      v-bind:key="landmark.landmark_id"
+      draggable="true"
+      @dragstart="startDrag($event, landmark_id)"
+      class="landmark-name" 
+    >
+      <p>
+        {{ landmark.landmark_name }}
+        
+        <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">
+          X
+        </button>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -29,17 +49,14 @@ import ItineraryService from "../services/ItineraryService";
 import LandmarkService from "../services/LandmarkService";
 import ItineraryMap from "./ItineraryMap.vue";
 
-
-
 export default {
-  components:{ItineraryMap},
+  components: { ItineraryMap },
   props: {
     itinerary: Object,
   },
   data() {
     return {
       landmarks: [],
-      
     };
   },
 
@@ -59,25 +76,17 @@ export default {
       ItineraryService.deleteItinerary(this.itinerary.itinerary_id);
       location.reload();
     },
-     startDrag(evt) {
-          evt.dataTransfer.dropEffect = 'move'
-          evt.dataTransfer.effectAllowed = 'move'
-          evt.dataTransfer.setData('itemID', this.landmarks.landmark_id)
-      },
-      onDrop(){
- ItineraryService.deleteItinerary(this.itinerary.itinerary_id);
-      location.reload();
-
-         
-      }
-   
+    startDrag(evt, landmark_id) {
+      evt.dataTransfer.dropEffect = "move";
+      evt.dataTransfer.effectAllowed = "move";
+      evt.dataTransfer.setData("landmark_id", landmark_id);
     },
-
-
-   
-
-   
-
+    onDrop(evt) {
+      const landmark_id = evt.dataTransfer.getData(landmark_id);
+     ItineraryService.removeLandmark(landmark_id);
+      location.reload();
+    },
+  },
 };
 </script>
 
@@ -92,44 +101,145 @@ export default {
   position: relative;
 }
 
-.deletebtn{
-
+.deletebtn {
   color: #fff;
-background-color: #112740;
+  background-color: #112740;
   transition: all 150ms ease-in-out;
-  position:absolute;
-     top:0;
-     right:0;
-     margin: 5px;
-     border-radius: 10%;
-     
-
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  border-radius: 10%;
 }
 .deletebtn:hover {
   background-color: #3498db;
-   
 }
 
-.xbtn{
+.xbtn {
   float: right;
-  
+
   color: white;
- 
+
   background-color: #e74c3c;
-  
-  
-   height: 25px;
+
+  height: 25px;
   width: 25px;
- 
+
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
-
 }
-.mapcard{
+.mapcard {
   margin-top: 10%;
 }
+.landmark-name{
+  height: 30px;
 
+border: solid #ffffff 0.5px;
+margin: 1px;
+border-radius: 10px;
+
+}
+
+
+
+
+.icon-trash {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.icon-trash .trash-lid {
+  width: 62%;
+  height: 10%;
+  position: absolute;
+  left: 50%;
+  margin-left: -31%;
+  top: 10.5%;
+  background-color: #000;
+  border-top-left-radius: 80%;
+  border-top-right-radius: 80%;
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  transform: rotate(-5deg); 
+}
+
+.icon-trash .trash-lid:after {
+  content: "";
+  width: 26%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -13%;
+  margin-top: -10%;
+  background-color: inherit;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  transform: rotate(-1deg); 
+}
+
+.icon-trash .trash-container {
+  width: 56%;
+  height: 65%;
+  position: absolute;
+  left: 50%;
+  margin-left: -28%;
+  bottom: 10%;
+  background-color: #000;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+}
+
+.icon-trash .trash-container:after {
+  content: "";
+  width: 110%;
+  height: 12%;
+  position: absolute;
+  left: 50%;
+  margin-left: -55%;
+  top: 0;
+  background-color: inherit;
+  border-bottom-left-radius: 45%;
+  border-bottom-right-radius: 45%;
+}
+
+.icon-trash .trash-line-1 {
+  width: 4%;
+  height: 50%;
+  position: absolute;
+  left: 38%;
+  margin-left: -2%;
+  bottom: 17%;
+  background-color: #252527;
+}
+
+.icon-trash .trash-line-2 {
+  width: 4%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -2%;
+  bottom: 17%;
+  background-color: #252527;
+}
+
+.icon-trash .trash-line-3 {
+  width: 4%;
+  height: 50%;
+  position: absolute;
+  left: 62%;
+  margin-left: -2%;
+  bottom: 17%;
+  background-color: #252527;
+}
 
 
 </style>
