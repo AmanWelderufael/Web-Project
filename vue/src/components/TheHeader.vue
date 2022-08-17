@@ -27,7 +27,7 @@
       <ul class="nav_links">
        <li><a href="#"
           ><router-link v-bind:to="{ name: 'About' }">About</router-link></a
-        ></li> 
+        > 
         <li>
           <a href="#"
             ><router-link v-bind:to="{ name: 'Landmark-search' }"
@@ -59,7 +59,7 @@
           <router-link
             v-bind:to="{ name: 'home' }"
             v-if="$store.state.token != ''"
-            >Home</router-link
+            >MyTrips</router-link
           >
         </li>
 

@@ -14,6 +14,7 @@ import LandingPage from '../views/LandingPage'
 
 
 
+
 Vue.use(Router)
 
 /**
@@ -90,7 +91,8 @@ const router = new Router({
       path: '/',
       name: 'LandingPage',
       component: LandingPage
-    }
+    },
+   
     
   ]
 })

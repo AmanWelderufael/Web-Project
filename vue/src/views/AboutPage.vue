@@ -63,11 +63,18 @@
        <p>I've been listening to the Focus playlist on Spotify.</p>
 </section> -->
     </body>
+
+
+
+
+
   </div>
 </template>
 
 <script>
-export default {};
+
+export default {
+ };
 </script>
 
 <style scoped>
@@ -315,4 +322,6 @@ section > h1 {
     font-size: 3em;
   }
 }
+
+
 </style>

@@ -1,11 +1,14 @@
 <template>
   <div class="card">
-    <button class="deletebtn" @click="deleteItinerary()">
+
+<!-- add (event,landmark-id) -->
+<!-- <button class="deletebtn" @click="deleteItinerary()"   @drop="onDrop($event, landmark_id)" @dragover.prevent @dragenter.prevent> -->
+    <button class="deletebtn"  @click="deleteItinerary()" @drop="onDrop($event, landmark_id)" @dragover.prevent @dragenter.prevent>
       Delete this trip
     </button>
 
     <h2>{{ itinerary.itinerary_name }}</h2>
-    <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
+    <div v-for="landmark in landmarks" v-bind:key="landmark.landmark_id" draggable="true" @dragstart="startDrag($event,item)">
       <p>{{ landmark.landmark_name }}  <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">X</button></p>
       
     </div>
@@ -21,6 +24,7 @@
     <div class="mapcard">
       <itinerary-map v-bind:itinerary="this.itinerary" />
     </div>
+    
   </div>
 </template>
 
@@ -30,14 +34,17 @@ import ItineraryService from "../services/ItineraryService";
 import LandmarkService from "../services/LandmarkService";
 import ItineraryMap from "./ItineraryMap.vue";
 
+
+
 export default {
-  components: { ItineraryMap },
+  components:{ItineraryMap},
   props: {
     itinerary: Object,
   },
   data() {
     return {
       landmarks: [],
+      
     };
   },
 
@@ -57,7 +64,27 @@ export default {
       ItineraryService.deleteItinerary(this.itinerary.itinerary_id);
       location.reload();
     },
-  },
+     startDrag(evt) {
+          evt.dataTransfer.dropEffect = 'move'
+          evt.dataTransfer.effectAllowed = 'move'
+          evt.dataTransfer.setData('itemID', this.landmarks.landmark_id)
+      },
+      onDrop(){
+ ItineraryService.deleteItinerary(this.itinerary.itinerary_id);
+      location.reload();
+
+          // const itemID = evt.dataTransfer.getData('itemID')
+          // const item = this.items.find((item) => item.id == itemID)
+          // item.list = list
+      }
+   
+    },
+
+
+   
+
+   
+
 };
 </script>
 
