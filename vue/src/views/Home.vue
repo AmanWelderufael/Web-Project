@@ -4,13 +4,22 @@
       Add a new Itinerary
     </button> -->
     <!-- <div v-if="itineraries != []"> -->
-    <itinerary class="flex-item" v-bind:itinerary ="itinerary" v-for="itinerary in itineraries" v-bind:key="itinerary.itinerary_id"></itinerary>\
+    <itinerary
+      class="flex-item"
+      v-bind:itinerary="itinerary"
+      v-for="itinerary in itineraries"
+      v-bind:key="itinerary.itinerary_id"
+    ></itinerary
+    >\
     <!-- </div> -->
-    <form class ="flex-item" id="make-itinerary">
-      <h1> Plan a new trip! </h1>
+
+    <form class="flex-item" id="make-itinerary">
+      <div class="container">
+        <h1 class="sixth">Plan Your Trips</h1>
+      </div>
       <div class="field">
-        <label for="itineraryName">Name of Itinerary</label>
         <input
+          placeholder="Name of Itinerary"
           type="text"
           name="itineraryName"
           v-model="newItinerary.itinerary_name"
@@ -22,6 +31,7 @@
             >Choose a starting location</label
           >
         </div>
+
         <select
           v-model="newItinerary.starting_landmark_id"
           class="custom-select"
@@ -39,11 +49,15 @@
       </div>
       <button
         type="submit"
-        class="btn save"
+        class="submit"
         v-on:click.prevent="submitItinerary()"
       >
         submit
       </button>
+
+      <router-link class="logo" v-bind:to="{ name: 'LandingPage' }">
+        <img class="NYSEE" src="../assets/y.png" alt="NYSEE Logo" />
+      </router-link>
     </form>
   </div>
 </template>
@@ -90,62 +104,38 @@ export default {
     LandmarkService.getByItinerary(this.newItinerary).then((response) => {
       this.landmarks = response.data;
     });
-    itineraryService.search().then( (response) => {
-       this.itineraries = response.data;
+    itineraryService.search().then((response) => {
+      this.itineraries = response.data;
     });
-    
   },
 };
 </script>
 
 <style scoped>
-
 .home {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-image:url("../assets/20.jpg") ; */
   background-size: cover;
   background-position: center center;
   display: flex;
-  
+
   width: 100%;
   height: 90vh;
 }
-/* div{
-  display: flex;
-  
-  justify-content: center;
-  align-items: center;
-} */
-.flex-item{
+
+.flex-item {
   width: 25%;
   margin: 1%;
-   height: 80vh;
-  
+  height: 80vh;
 }
 #make-itinerary {
-/*  
-  transform: translate(-50%, -50%);
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); */
+  background: linear-gradient(rgba(194, 81, 81, 0.3), rgba(33, 38, 100, 0.685));
+  display: flex;
+  flex-direction: column;
 
-  /* padding: 50px 30px; */
-  
-  /* border-radius: 10px;
-  box-shadow: 20px 20px 70px rgb(3, 43, 57);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  
-  align-content: center;
-  color: black; */
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-around; */
-  color: black;
- 
-  
+  color: whitesmoke;
+
   border-radius: 10px;
 }
 .input-group-mb-3 {
@@ -153,11 +143,8 @@ export default {
   flex-direction: column;
   flex-shrink: 2;
 }
+
 .addItineraryButton {
-  /* height: 10vh;
-  margin-left: 60px;
-  margin-top: 20px;
-  transition: 2ms; */
   width: 100px;
   height: 100px;
   background: rgb(79, 85, 88);
@@ -170,16 +157,105 @@ export default {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   border: none;
 }
+
 .addItineraryButton:hover {
   width: 200px;
 }
 #intro {
   margin: 30px;
 }
-/* .addItineraryButton{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-} */
 
+.sixth {
+  font-weight: bold;
+  color: whitesmoke;
+
+  font-family: "Lato";
+}
+h1.sixth {
+  position: relative;
+}
+h1.sixth:before,
+h1.sixth:after {
+  content: "[";
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  height: 100%;
+  font-size: 1.25em;
+  color: tomato;
+
+  transition: all 0.5s ease;
+}
+h1.sixth:after {
+  content: "]";
+}
+
+h1.sixth:hover:before {
+  transform: translateX(-5px);
+}
+
+h1.sixth:hover:after {
+  transform: translateX(5px);
+}
+.field {
+  margin-top: 25px;
+  display: inline-block;
+}
+input {
+  border: none;
+  outline: none;
+  display: inline-block;
+  height: 34px;
+  vertical-align: middle;
+  position: relative;
+  bottom: 14px;
+  right: 9px;
+  border-radius: 22px;
+  width: 220px;
+  box-sizing: border-box;
+  padding: 0 18px;
+}
+.custom-select {
+  border: none;
+  outline: none;
+  display: inline-block;
+  height: 34px;
+  vertical-align: middle;
+  margin-left: 18%;
+  bottom: 14px;
+  right: 9px;
+  border-radius: 22px;
+  width: 220px;
+  box-sizing: border-box;
+  padding: 0 18px;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  display: inline-block;
+  height: 34px;
+  vertical-align: middle;
+  position: relative;
+  bottom: 14px;
+  right: 9px;
+  border-radius: 22px;
+  width: 220px;
+  box-sizing: border-box;
+  padding: 0 18px;
+
+  background: #112740 !important;
+  color: #fff;
+  position: relative;
+  left: 35%;
+  top: 25px;
+  width: 100px;
+  cursor: pointer;
+}
+img {
+  border-radius: 50%;
+  width: 70%;
+  margin-left: auto;
+  margin-top: 15%;
+}
 </style>
