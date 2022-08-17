@@ -3,11 +3,11 @@
     <!-- Add the logo as an image here -->
 
     <div class="header-limiter"></div>
-
-    <!-- <img src="../assets/NYC.png" alt=""> -->
-
+     
+    <img class="NYSEE" src="../assets/y.png" alt="NYSEE Logo" > 
+    
     <router-link class="logo" v-bind:to="{ name: 'LandingPage' }"
-      >NYSEE&trade;</router-link
+      ></router-link
     >
 
 
@@ -97,6 +97,10 @@ export default {
 </script>
 
 <style scoped>
+ div > img.NYSEE {
+   max-height: 15vh;
+  
+ }
 .logo {
   cursor: pointer;
   widows: 20px;
@@ -124,8 +128,9 @@ button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 30px 10%;
-}
+  /* padding: 30px 10%; */
+  max-height: 15vh;
+  }
 .nav_links {
   list-style: none;
 }
