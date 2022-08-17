@@ -22,7 +22,7 @@
 
 
 
-          <ul>
+          <ul v-if="$store.state.token != ''">
            <a href="#"> <li><i class="material-icons" @click="showModal" >Add To Itinerary</i></li></a>
             
           </ul>
