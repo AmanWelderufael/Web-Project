@@ -2,7 +2,7 @@
   <div class="card">
     <!-- add (event,landmark-id) -->
     <!-- <button class="deletebtn" @click="deleteItinerary()"   @drop="onDrop($event, landmark_id)" @dragover.prevent @dragenter.prevent> -->
-      <div class="icon-trash" style="float: left" @drop="onDrop(evt)"
+      <div class="icon-trash" style="float: left" @drop="onDrop($event)"
       @dragover.prevent
       @dragenter.prevent >
     <div class="trash-lid" style="background-color: #2CC3B5"></div>
@@ -29,7 +29,7 @@
       v-for="landmark in landmarks"
       v-bind:key="landmark.landmark_id"
       draggable="true"
-      @dragstart="startDrag($event, landmark_id)"
+      @dragstart="startDrag($event, landmark.landmark_id)"
       class="landmark-name" 
     >
       <p>
@@ -79,11 +79,11 @@ export default {
     startDrag(evt, landmark_id) {
       evt.dataTransfer.dropEffect = "move";
       evt.dataTransfer.effectAllowed = "move";
-      evt.dataTransfer.setData("landmark_id", landmark_id);
+      evt.dataTransfer.setData('landmark_id', landmark_id);
     },
     onDrop(evt) {
-      const landmark_id = evt.dataTransfer.getData(landmark_id);
-     ItineraryService.removeLandmark(landmark_id);
+      const landmarkId = evt.dataTransfer.getData('landmark_id');
+     ItineraryService.removeLandmark(this.itinerary.itinerary_id, landmarkId);
       location.reload();
     },
   },
