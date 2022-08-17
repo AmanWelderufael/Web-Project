@@ -37,12 +37,13 @@ export default {};
 
   margin: auto;
    width: 100%;
+   
   
   padding: 10px;
  box-sizing: border-box;
   background-image: url("../assets/26.jpg");
 background-size: cover;
-height: 100vh;
+height: 95vh;
 display: flex;
 flex-direction: column;
 align-content: center;
@@ -64,10 +65,12 @@ justify-content: center;
 .name {
   font-size: 400%;
   text-align: center;
+  margin: none;
   
 }
 .par {
   text-align: center;
+  margin: none;
 }
 
 /* .btn {
