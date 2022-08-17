@@ -140,7 +140,13 @@ margin: 1px;
 border-radius: 10px;
 
 }
+.landmark-name:hover {
+  cursor: -webkit-grab;
+}
 
+.landmark-name:active {
+  cursor: -webkit-grabbing;
+}
 
 
 
