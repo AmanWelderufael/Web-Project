@@ -2,12 +2,13 @@
   <div class="header">
     <!-- Add the logo as an image here -->
 
-    <div class="header-limiter"></div>
-     
-    <img class="NYSEE" src="../assets/y.png" alt="NYSEE Logo" > 
+  
+<!--      
+    <img class="NYSEE" src="../assets/y.png" alt="NYSEE Logo" >  -->
     
     <router-link class="logo" v-bind:to="{ name: 'LandingPage' }"
-      ></router-link
+    
+      >  <img class="NYSEE" src="../assets/y.png" alt="NYSEE Logo" > </router-link
     >
 
 
@@ -97,8 +98,8 @@ export default {
 </script>
 
 <style scoped>
- div > img.NYSEE {
-   max-height: 15vh;
+ div > .logo .NYSEE {
+   max-height: 14vh;
   
  }
 .logo {
