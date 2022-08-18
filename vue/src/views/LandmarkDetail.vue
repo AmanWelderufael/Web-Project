@@ -21,12 +21,12 @@
         <div class="movie_social" >
 
 
-
-          <ul v-if="$store.state.token != ''">
+            <div v-if="$store.state.token != ''">
+          <ul >
            <a href="#"> <li><i class="material-icons" @click="showModal" >Add To Itinerary</i></li></a>
             
           </ul>
-          
+          </div>
         </div>
       </div>
       
