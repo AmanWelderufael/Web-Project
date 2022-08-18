@@ -140,7 +140,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin: 10px 10px 0 0;
-  width: 300px;
+  width:250px;
   border-radius: 10px;
 }
 

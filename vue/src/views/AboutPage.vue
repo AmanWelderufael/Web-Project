@@ -5,15 +5,32 @@
         rel="stylesheet"
         href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
       />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
       <link
         href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Raleway"
         rel="stylesheet"
         type="text/css"
       />
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li>
+              <a class="linkedin" href="https://www.linkedin.com/in/aman-welderufael-5b03a2209/"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a class="linkedin" href="https://www.linkedin.com/in/justin-ranly/"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a class="linkedin" href="https://www.linkedin.com/in/robertsiefert/"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a class="linkedin" href="https://www.linkedin.com/in/betelhem-hagos/"><i class="fa fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
 
       <section class="introduction">
         <div class="starcontainer">
-          <h2>About me</h2>
+          <h2>About us</h2>
           <i class="fa fa-star fa-2x"></i>
           <i class="star"></i>
         </div>
@@ -82,8 +99,91 @@ body {
   color: #222222;
   font-size: 1em;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #27901d3d;
+  
 }
+
+.social-icons
+{
+  text-align:left;
+ 
+}
+.social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:50%;
+  background-color:#5e6479
+}
+
+
+
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#0078c7;
+  color:#ffffff;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#0d0f11
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+
+.social-icons a.linkedin:hover
+{
+  background-color:#253e49
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .introduction > p,
 .location > p,
