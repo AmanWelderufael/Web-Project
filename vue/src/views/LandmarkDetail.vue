@@ -42,7 +42,7 @@
       id="map-container"
     ></the-map>
 
-    <Modal
+    <Modal class="modal"
             v-bind:landmark="landmark"
             v-show="isModalVisible"
             @close="closeModal"
@@ -218,6 +218,17 @@ li:hover {
 
 .movie_social{
   color: #112740;
+}
+.modal{
+
+  margin-top: 8%;
+   width: 20.5%;
+   height: 85%;
+   left: 0;
+
+  
+   
+   
 }
 
 </style>

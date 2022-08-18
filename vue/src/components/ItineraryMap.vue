@@ -1,6 +1,6 @@
 <template>
   <div v-if="coordinates.length > 0" class="movie_card" id="bright">
-    <GmapMap  id="map" :center="coordinates[0]" :zoom="12" map-type-id="terrain">
+    <GmapMap  id="map" :center="startingCoordinates" :zoom="11" map-type-id="terrain">
       <GmapMarker
         v-for="coordinate in coordinates"
         v-bind:key="coordinate"
@@ -36,7 +36,11 @@ export default {
       (response) => {
         this.landmarks = response.data;
 
+        let sumOfLatitude = 0;
+        let sumOfLongitude = 0;
         for (let i = 0; i < this.landmarks.length; i++) {
+          sumOfLatitude = sumOfLatitude + this.landmarks[i].latitude;
+          sumOfLongitude = sumOfLongitude + this.landmarks[i].longitude;
           let coordinate = {
             lat: this.landmarks[i].latitude,
             lng: this.landmarks[i].longitude,
@@ -44,6 +48,8 @@ export default {
           console.log(coordinate);
           this.coordinates.push(coordinate);
         }
+        this.startingCoordinates.lat = sumOfLatitude/this.landmarks.length;
+        this.startingCoordinates.lng = sumOfLongitude/this.landmarks.length;
       }
     );
   },
