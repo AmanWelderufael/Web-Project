@@ -32,7 +32,7 @@
       @dragstart="startDrag($event, landmark.landmark_id)"
       class="landmark-name"
     >
-      {{ landmark.landmark_name }}
+       {{ landmark.landmark_name }}
 
       <button class="xbtn" @click="removeLandmark(landmark.landmark_id)">
         X
@@ -106,11 +106,7 @@ h2 {
   padding: 1em;
 
   width: 100%;
-  height: 100%;
   position: relative;
-  display: flex;
-  flex-direction: column;
-
 }
 
 .deletebtn {
@@ -132,21 +128,29 @@ h2 {
 .xbtn {
   color: white;
 
-  float: right;
+  
   background-color: #e74c3c;
 
-  text-align: center;
+ 
 
   border-radius: 50%;
 
   cursor: pointer;
-  margin-top: 1%;
+  
+margin-left: auto;
+display: flex;
+margin-right: 2px;
+
 }
 .xbtn:hover {
   background-color: #3498db;
 }
 .mapcard {
   margin-top: 10%;
+  
+
+
+ 
 }
 .landmark-name {
   height: 30px;
@@ -154,6 +158,10 @@ h2 {
   border: solid #ffffff 0.5px;
   margin: 2%;
   border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding-left: 5px;
 }
 .landmark-name:hover {
   color: #112740;

@@ -131,6 +131,7 @@ export default {
   color: whitesmoke;
 
   border-radius: 10px;
+  height: 80vh;
 }
 .input-group-mb-3 {
   display: flex;
