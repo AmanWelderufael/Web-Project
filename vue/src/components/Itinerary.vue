@@ -128,21 +128,28 @@ h2 {
 .xbtn {
   color: white;
 
-  float: right;
+  
   background-color: #e74c3c;
 
-  text-align: center;
+ 
 
   border-radius: 50%;
 
   cursor: pointer;
-  margin-top: 1%;
+  
+margin-left: auto;
+display: flex;
+
 }
 .xbtn:hover {
   background-color: #3498db;
 }
 .mapcard {
   margin-top: 10%;
+  
+
+
+ 
 }
 .landmark-name {
   height: 30px;
@@ -150,6 +157,9 @@ h2 {
   border: solid #ffffff 0.5px;
   margin: 2%;
   border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .landmark-name:hover {
   color: #112740;

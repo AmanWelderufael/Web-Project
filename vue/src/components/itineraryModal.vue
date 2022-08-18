@@ -135,7 +135,7 @@ export default {
 
 .modal {
   background: #ffffff;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  
   overflow-x: auto;
   display: flex;
   flex-direction: column;
