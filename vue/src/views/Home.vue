@@ -1,9 +1,5 @@
 <template>
   <div class="home">
-    <!-- <button @click="toggleShowForm" class="addItineraryButton" href="#">
-      Add a new Itinerary
-    </button> -->
-    <!-- <div v-if="itineraries != []"> -->
     <itinerary
       class="flex-item"
       v-bind:itinerary="itinerary"
@@ -11,12 +7,10 @@
       v-bind:key="itinerary.itinerary_id"
     ></itinerary
     >\
-    <!-- </div> -->
 
     <form class="flex-item" id="make-itinerary">
-      <div class="container">
-        <h1 class="sixth">Plan Your Trips</h1>
-      </div>
+      <h1 class="sixth">Plan Your Trips</h1>
+
       <div class="field">
         <input
           placeholder="Name of Itinerary"
@@ -168,6 +162,10 @@ export default {
 .sixth {
   font-weight: bold;
   color: whitesmoke;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 
   font-family: "Lato";
 }
@@ -214,6 +212,9 @@ input {
   width: 220px;
   box-sizing: border-box;
   padding: 0 18px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 .custom-select {
   border: none;
@@ -221,13 +222,16 @@ input {
   display: inline-block;
   height: 34px;
   vertical-align: middle;
-  margin-left: 18%;
+
   bottom: 14px;
   right: 9px;
   border-radius: 22px;
   width: 220px;
   box-sizing: border-box;
   padding: 0 18px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 .submit {
@@ -247,15 +251,21 @@ input {
   background: #112740 !important;
   color: #fff;
   position: relative;
-  left: 35%;
-  top: 25px;
+  top: 5%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
   width: 100px;
   cursor: pointer;
 }
 img {
-  border-radius: 50%;
+  border-radius: 70%;
   width: 70%;
-  margin-left: auto;
-  margin-top: 15%;
+
+  margin-top: 26%;
+
+  left: 0;
+  right: 0;
 }
 </style>
